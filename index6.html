@@ -1,0 +1,912 @@
+﻿<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>축제 원천데이터 통합분석 비교보고서 v74 수정비밀번호형</title><link rel="icon" href="data:,">
+<style>
+:root{--ink:#19151a;--muted:#716a70;--line:#e7e1e5;--paper:#fff;--bg:#eee9ed;--pink:#e6007e;--pink2:#ff6daf;--teal:#087481;--blue:#2d6f91;--gold:#d99b00;--green:#4f8c5b;--red:#c73e54;--violet:#6f55a5;--soft:#f8f4f6;--shadow:0 14px 38px rgba(42,27,36,.11)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif}.app{height:100vh;display:flex;flex-direction:column;overflow:hidden}.top{position:relative;flex:0 0 auto;z-index:20;background:#1b171a;color:#fff;box-shadow:0 6px 22px rgba(0,0,0,.2)}.topline{padding:14px clamp(16px,4vw,54px);display:flex;justify-content:space-between;align-items:center;gap:20px}.brand{display:flex;align-items:center;gap:13px}.brand i{width:12px;height:12px;background:var(--pink);border-radius:50%;box-shadow:0 0 0 6px rgba(230,0,126,.18)}h1{font-size:clamp(19px,2.4vw,31px);letter-spacing:-.04em;margin:0}.subtitle{font-size:11px;color:#c8bec4;margin-top:4px}.controls{display:flex;gap:9px;flex-wrap:wrap}.control{display:flex;align-items:center;gap:7px;background:#302a2e;padding:6px 9px;border-radius:10px}.control label{font-size:11px;color:#c9c0c5}.control select{border:0;border-radius:7px;padding:8px 30px 8px 10px;background:#fff;color:#241d21;font-weight:800}.nav{display:flex;gap:4px;overflow:auto;padding:8px clamp(10px,3vw,44px);background:#fff;border-bottom:1px solid var(--line);scrollbar-width:none}.nav button{border:0;background:transparent;padding:10px 14px;border-radius:999px;color:#6d656a;font-weight:850;white-space:nowrap;cursor:pointer}.nav button:hover{background:#f4eef2}.nav button.active{background:var(--pink);color:#fff}.wrap{flex:1 1 auto;width:100%;max-width:none;overflow-y:auto;overflow-x:hidden;padding:18px clamp(10px,2vw,24px) 70px;scroll-behavior:smooth;overscroll-behavior:contain;cursor:grab}.wrap.dragging{cursor:grabbing;user-select:none}.page{max-width:1280px;background:var(--paper);box-shadow:var(--shadow);border-radius:22px;margin:0 auto 22px;padding:clamp(20px,3vw,38px);min-height:650px;scroll-margin-top:150px}.cover{min-height:720px;background:linear-gradient(138deg,#171317 0 62%,#2f2229 62% 100%);color:#fff;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.cover:after{content:"";position:absolute;width:430px;height:430px;border-radius:50%;right:-100px;bottom:-150px;background:radial-gradient(circle at 35% 35%,var(--pink2),var(--pink));opacity:.9}.eyebrow{font-size:12px;letter-spacing:.18em;color:#e9a8cb;font-weight:900}.cover h2{font-size:clamp(43px,7vw,86px);line-height:1.04;letter-spacing:-.065em;margin:20px 0;max-width:900px}.cover p{font-size:16px;color:#d6cdd2;max-width:760px;line-height:1.75}.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:40px;max-width:980px;z-index:2}.kpi{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.13);border-radius:15px;padding:18px}.kpi b{font-size:27px;display:block}.kpi span{font-size:11px;color:#cfc4ca}.page-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}.secno{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:#9b9996;color:#fff;font-size:19px}.page h3{font-size:27px;letter-spacing:-.04em;margin:0}.lead{margin:4px 0 22px;color:var(--muted);font-size:13px;line-height:1.7}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}.grid-1-2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px}.lodging-equal-height{align-items:stretch}.lodging-equal-height>.card{display:flex;flex-direction:column}.lodging-equal-height>.card>.chart-selection{margin-top:auto}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card{border:1px solid var(--line);border-radius:16px;padding:17px;background:#fff;overflow:hidden}.card.soft{background:var(--soft)}.card h4{margin:0 0 13px;font-size:15px}.chart{width:100%;max-width:100%;overflow:hidden;touch-action:pan-y}.chart svg{display:block;width:100%;max-width:100%;height:auto;min-width:0;user-select:none}.legend{display:flex;gap:14px;flex-wrap:wrap;margin:8px 0 0;font-size:11px;color:#625a60}.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px}.data-table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}.data-table th{background:#211b1f;color:#fff;padding:11px 12px;text-align:right}.data-table th:first-child,.data-table td:first-child{text-align:left}.data-table td{padding:9px 12px;border-bottom:1px solid #eee8ec;text-align:right}.data-table tbody tr:nth-child(even){background:#fbf9fa}.data-table tbody tr:last-child td{border-bottom:0}.note{font-size:11px;line-height:1.6;color:#7a7177;margin-top:8px}.insight{margin-top:15px;border-left:5px solid var(--pink);background:#fff3f9;border-radius:0 12px 12px 0;padding:14px 16px;font-size:13px;line-height:1.65}.warn{margin:12px 0;background:#fff7df;border:1px solid #f0d389;padding:13px 15px;border-radius:12px;color:#684d00;font-size:12px;line-height:1.55}.exclusion-note{margin:11px 0 4px;padding:13px 15px;border-radius:12px;background:#eef7f8;border:1px solid #b8dadd;color:#19545b;font-size:11px;line-height:1.7}.exclusion-note b{display:block;color:#087481;font-size:12px;margin-bottom:3px}.ok{background:#eff8f1;border-color:#b9ddc1;color:#285f33}.matrix td.heat{font-weight:800}.metric-list{display:grid;gap:8px}.metric{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}.metric:last-child{border-bottom:0}.metric b{font-size:18px}.smallcaps{font-size:10px;letter-spacing:.12em;font-weight:900;color:var(--pink)}.method{display:grid;grid-template-columns:180px 1fr;gap:8px 16px;font-size:12px}.method dt{font-weight:900}.method dd{margin:0;color:#655d62}.qa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.qa{border:1px solid var(--line);border-radius:14px;padding:14px}.qa b{display:block;font-size:17px;margin-bottom:5px}.qa span{font-size:11px;color:var(--muted);line-height:1.5}.empty{padding:25px;text-align:center;color:var(--muted);background:var(--soft);border-radius:12px}.year-key{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:18px 0 20px;padding:13px 16px;border:1px solid var(--line);border-radius:13px;background:#fff}.year-key>b{margin-right:4px}.year-key span{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:800}.year-key i{display:inline-block;width:15px;height:15px;border-radius:4px;border:1px solid rgba(0,0,0,.18)}.legend span{font-weight:800}.legend i{border:1px solid rgba(0,0,0,.18)}.chart [data-tip-title]{cursor:pointer;outline:none;transition:opacity .15s,filter .15s}.chart [data-tip-title]:hover,.chart [data-tip-title]:focus{opacity:.78;filter:drop-shadow(0 0 3px rgba(0,0,0,.28))}.chart [data-tip-title].selected-mark{opacity:1;filter:drop-shadow(0 0 5px rgba(230,0,126,.6));stroke:#1d171b;stroke-width:2.5px}.chart [data-series-key].series-muted{opacity:.16!important;filter:saturate(.25)}.chart [data-series-key].series-highlight{opacity:1!important;filter:drop-shadow(0 0 3px rgba(29,23,27,.28))}.chart .series-line.series-highlight{stroke-width:5px!important}.chart .series-line.series-muted{stroke-width:2px!important}.chart-selection.active{font-size:12px;font-weight:700;box-shadow:inset 4px 0 0 #e6007e}.chart-selection.active{display:grid;grid-template-columns:auto 1fr;gap:5px 12px;padding:12px 14px;background:#fff0f7;border-color:#e6007e}.chart-selection:not(.active) .selection-label,.chart-selection:not(.active) .selection-detail{display:none}.chart-selection .selection-label{font-size:10px;font-weight:900;color:#8b7782}.chart-selection .selection-value{font-size:13px;font-weight:900;color:#241d21}.chart .line-hit{cursor:pointer}.chart .line-hit.selected-mark{stroke:#1d171b!important;stroke-opacity:.9!important;stroke-width:7px!important}.chart-tip{position:fixed;z-index:1000;display:none;max-width:290px;padding:11px 13px;border-radius:11px;background:rgba(25,21,26,.96);color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:12px;line-height:1.55;pointer-events:none}.chart-tip b{display:block;color:#ff9dce;font-size:13px;margin-bottom:2px}.chart-tip{white-space:pre-line}.chart-selection{margin-top:9px;padding:9px 12px;border-radius:9px;background:#f7f2f5;border:1px solid #e5dce1;color:#6a6267;font-size:11px;line-height:1.5}.chart-selection b{color:#e6007e;margin-right:7px}.chart-selection.active{background:#fff0f7;border-color:#efacd0;color:#322a2f}.pyramid-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:14px}.pyramid-card{border:1px solid var(--line);border-radius:15px;padding:14px}.pyramid-card h4{text-align:center;margin:0 0 8px}.pyramid-chart{width:100%;overflow:hidden}.pyramid-chart svg{display:block;width:100%;height:auto}.pyramid-legend{display:flex;justify-content:center;gap:18px;font-size:11px;font-weight:800}.pyramid-legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px}@media(max-width:600px){.pyramid-grid{grid-template-columns:1fr}}.toc{min-height:auto}.toc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px}.toc-item{border:1px solid var(--line);border-radius:15px;padding:17px;background:var(--soft)}.toc-item>b{display:block;font-size:15px;margin-bottom:9px}.toc-item span{display:block;font-size:12px;color:var(--muted);line-height:1.75}.subhead{display:flex;gap:11px;align-items:flex-start;margin:28px 0 13px;padding:12px 14px;border-radius:13px;background:#f6f1f4;border-left:5px solid var(--pink)}.subhead>b{font-size:14px;color:var(--pink);white-space:nowrap}.subhead h4{margin:0;font-size:16px}.subhead p{margin:5px 0 0;font-size:11px;line-height:1.55;color:var(--muted)}.subhead>div{flex:1}.view-toggle{margin-left:auto;align-self:center;border:1px solid #d9cdd4;background:#fff;color:#3c3338;border-radius:999px;padding:8px 13px;font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap}.view-toggle:hover{background:#fff0f7;border-color:#e6007e;color:#e6007e}.view-block.hidden{display:none}.view-hint{font-size:10px;color:var(--muted);margin:6px 0 0;text-align:right}.footer{font-size:11px;text-align:center;color:#786f74;padding:15px}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+@media(max-width:850px){.toc-grid{grid-template-columns:1fr}.grid-1-2{grid-template-columns:1fr}.topline{align-items:flex-start;flex-direction:column}.grid2,.grid3,.qa-grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.page{min-height:0}.cover{min-height:640px}.method{grid-template-columns:1fr}.chart svg{min-width:0}}
+@media print{body{overflow:visible}.app{height:auto;display:block;overflow:visible}.top{position:static}.nav,.controls{display:none}.wrap{display:block;overflow:visible;max-width:none;padding:0}.page{box-shadow:none;border-radius:0;break-after:page;margin:0;min-height:190mm}.chart{overflow:visible}.chart svg{min-width:0}.cover{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* v23 festival workbook manager */
+.manage-btn{border:1px solid #655b61;background:#fff;color:#241d21;border-radius:10px;padding:9px 14px;font-weight:900;cursor:pointer}.manage-btn:hover{border-color:var(--pink);color:var(--pink)}
+.manager-backdrop{position:fixed;inset:0;background:rgba(20,15,18,.62);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px}.manager-backdrop.open{display:flex}.manager{width:min(820px,96vw);max-height:88vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 28px 80px rgba(0,0,0,.35);padding:22px}.manager-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}.manager-head h2{margin:0;font-size:23px}.manager-head p{margin:6px 0 0;color:#716a70;font-size:12px}.manager-close{border:0;background:#eee7eb;border-radius:50%;width:36px;height:36px;font-size:20px;cursor:pointer}.upload-box{margin:18px 0;padding:18px;border:2px dashed #d8cbd2;border-radius:14px;background:#fbf8fa;display:flex;gap:12px;align-items:center;flex-wrap:wrap}.upload-box input{max-width:100%}.festival-manage-list{display:grid;gap:9px}.festival-manage-row{display:grid;grid-template-columns:42px minmax(180px,1fr) auto;gap:10px;align-items:center;border:1px solid #e7e1e5;border-radius:12px;padding:10px;background:#fff}.drag-handle{font-weight:900;color:var(--pink);color:#8c8187;font-size:20px;text-align:center}.festival-meta b{display:block}.festival-meta small{color:#7a7177}.row-actions{display:flex;gap:6px;align-items:center}.position-select{border:1px solid #ddd1d8;background:#fff;border-radius:8px;padding:7px 5px;font-weight:800}.row-actions button{border:1px solid #ddd1d8;background:#fff;border-radius:8px;padding:7px 9px;cursor:pointer}.row-actions .danger{color:#b4233c}.manager-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.manager-actions button{border:0;border-radius:10px;padding:10px 16px;font-weight:900;cursor:pointer}.manager-actions .primary{background:var(--pink);color:#fff}.upload-status{font-size:12px;line-height:1.6;width:100%}.upload-status.error{color:#a21d35}.upload-status.ok{color:#24713a}.source-badge{display:inline-block;margin-left:6px;padding:2px 7px;border-radius:999px;background:#eff8f1;color:#285f33;font-size:9px;font-weight:900}
+.upload-mode-row{display:flex;gap:10px;flex-wrap:wrap}.upload-choice{display:flex;align-items:center;gap:8px;border:1px solid #d9cbd2;border-radius:10px;padding:9px 12px;background:#fff;font-weight:900}.upload-choice.primary-choice{border-color:var(--pink);background:#fff5fa}.upload-choice input{max-width:280px}@media(max-width:700px){.upload-mode-row,.upload-choice{width:100%}.festival-manage-row{grid-template-columns:34px 1fr}.row-actions{grid-column:1/-1;justify-content:flex-end;flex-wrap:wrap}}.festival-tab-item{display:inline-flex;align-items:center;gap:3px}.festival-tab-item .source-download{border:1px solid #d9cbd2;background:#fff;color:#65324b;border-radius:999px;width:28px;height:28px;padding:0;font-size:13px;cursor:pointer}.festival-tab-item .source-download:hover{border-color:var(--pink);color:var(--pink);background:#fff5fa}.source-link{border:1px solid #d9cbd2;background:#fff;color:#65324b;border-radius:8px;padding:7px 9px;font-weight:900;text-decoration:none;font-size:11px}.source-link:hover{border-color:var(--pink);color:var(--pink)}[hidden]{display:none!important}.upload-title-row{display:flex;align-items:center;gap:10px;width:100%}.upload-title-row select{border:1px solid #d8cbd2;border-radius:9px;padding:7px 10px;font-weight:900;background:#fff}.upload-mode-row{display:flex;gap:10px;flex-wrap:wrap;width:100%}.upload-choice{display:flex;align-items:center;gap:8px;border:1px solid #d9cbd2;border-radius:10px;padding:9px 12px;background:#fff;font-weight:900}.source-action{display:inline-flex;align-items:center;border:1px solid #ddd1d8;background:#fff;color:#422a36;border-radius:8px;padding:7px 9px;font-size:11px;font-weight:900;text-decoration:none;cursor:pointer}.source-action:hover{border-color:var(--pink);color:var(--pink)}.manager-backdrop{display:none!important}.manager-backdrop.open{display:flex!important}
+.no-festival-year{display:inline-flex;align-items:center;padding:10px 14px;color:#8b7a83;font-weight:900;background:#f6f1f4;border-radius:999px}
+#festivalManager[hidden]{display:none!important}#festivalManager.manager-backdrop{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:2147483000!important;background:rgba(20,15,18,.66)!important;align-items:center!important;justify-content:center!important;padding:20px!important;overflow:auto!important}#festivalManager.manager-backdrop.open:not([hidden]){display:flex!important}#festivalManager>.manager{position:relative!important;inset:auto!important;width:min(820px,calc(100vw - 40px))!important;max-height:calc(100vh - 40px)!important;overflow:auto!important;margin:auto!important;background:#fff!important;border-radius:20px!important;box-shadow:0 28px 80px rgba(0,0,0,.4)!important;z-index:1!important}
+.isolated-download-panel{display:none;position:fixed;inset:0;z-index:2147483600;background:rgba(20,15,18,.68);align-items:center;justify-content:center;padding:20px}.isolated-download-panel.open{display:flex}.isolated-download-card{position:relative;width:min(520px,92vw);background:#fff;border-radius:18px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.35)}.isolated-download-card h3{margin:0 0 8px}.isolated-download-card p{color:#6c6268;font-size:13px}.isolated-close{position:absolute;right:14px;top:12px;border:0;background:#eee6ea;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer}.isolated-frame{width:100%;height:72px;border:0;margin-top:8px}
+.cover-meta{margin-top:18px;padding:14px 16px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:12px}.cover-meta-title{font-size:12px;font-weight:900;margin-bottom:8px}.cover-meta-row{display:grid;grid-template-columns:70px 1.2fr 1fr;gap:12px;padding:6px 0;border-top:1px solid rgba(255,255,255,.14);font-size:11px}.cover-meta-row:first-of-type{border-top:0}@media(max-width:700px){.cover-meta-row{grid-template-columns:1fr;gap:3px}}
+.toc-main-link{cursor:pointer;display:inline-block}.toc-sub-link{cursor:default}.toc-main-link:hover,.toc-main-link:focus{color:var(--pink);text-decoration:underline;outline:none}
+
+.cover-meta-table-wrap{width:100%;overflow-x:auto}.cover-meta-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:13px;background:#fff}.cover-meta-table th,.cover-meta-table td{padding:10px 12px;border:1px solid #e5e7eb;text-align:center;white-space:nowrap}.cover-meta-table th{background:#f6f7fb;font-weight:800;color:#374151}.cover-meta-table td:first-child{font-weight:800;color:var(--pink)}
+
+.cover-meta{background:transparent!important}.cover-meta-table-wrap{background:transparent!important}.cover-meta-table{background:transparent!important;color:#111827!important}.cover-meta-table thead,.cover-meta-table tbody,.cover-meta-table tr,.cover-meta-table th,.cover-meta-table td{background:transparent!important;opacity:1!important;visibility:visible!important;color:#111827!important}.cover-meta-table th{font-weight:800!important}.cover-meta-table td{font-weight:600!important}.cover-meta-table td:first-child{color:var(--pink)!important;font-weight:800!important}
+
+.cover-meta{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.34)!important}.cover-meta-title{color:#fff!important}.cover-meta-table-wrap,.cover-meta-table,.cover-meta-table thead,.cover-meta-table tbody,.cover-meta-table tr,.cover-meta-table th,.cover-meta-table td{background:transparent!important}.cover-meta-table{color:#fff!important}.cover-meta-table th{color:rgba(255,255,255,.82)!important;font-weight:800!important;border-color:rgba(255,255,255,.28)!important}.cover-meta-table td{color:#fff!important;font-weight:700!important;border-color:rgba(255,255,255,.22)!important;text-shadow:0 1px 2px rgba(0,0,0,.35)!important}.cover-meta-table td:first-child{color:#fff!important;font-weight:900!important}
+
+/* v73: 표지 연도별 분석기준 폭을 좌측 70%로 제한해 우측 장식 배경과 겹치지 않도록 함 */
+.cover-meta{width:70%!important;max-width:70%!important;box-sizing:border-box!important;margin-right:auto!important;margin-left:0!important}
+.cover-meta-table-wrap{width:100%!important;max-width:100%!important;overflow:visible!important}
+.cover-meta-table{width:100%!important;max-width:100%!important;table-layout:fixed!important}
+@media(max-width:900px){.cover-meta{width:100%!important;max-width:100%!important}}
+
+/* 우측 대제목(1~7) 퀵 네비게이션 도크 */
+.quick-sec-nav{position:fixed;right:18px;top:54%;transform:translateY(-50%);z-index:1200;display:flex;flex-direction:column;gap:7px;padding:10px 8px;border-radius:999px;background:rgba(27,23,26,.88);backdrop-filter:blur(8px);box-shadow:0 10px 28px rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.14)}
+.quick-sec-nav button{position:relative;width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:13px;font-weight:900;cursor:pointer;display:grid;place-items:center;transition:all .16s ease;padding:0}
+.quick-sec-nav button:hover{background:var(--pink);border-color:var(--pink);transform:scale(1.08)}
+.quick-sec-nav button.active{background:var(--pink);border-color:var(--pink);box-shadow:0 0 0 4px rgba(230,0,126,.28)}
+.quick-sec-nav button .q-tip{position:absolute;right:46px;top:50%;transform:translateY(-50%);background:#1b171a;color:#fff;padding:6px 11px;border-radius:8px;font-size:11px;font-weight:800;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .15s;box-shadow:0 6px 18px rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.12)}
+.quick-sec-nav button:hover .q-tip,.quick-sec-nav button:focus-visible .q-tip{opacity:1}
+@media(max-width:900px){.quick-sec-nav{right:8px;padding:7px 5px;gap:5px}.quick-sec-nav button{width:30px;height:30px;font-size:11px}.quick-sec-nav button .q-tip{display:none}}
+@media print{.quick-sec-nav{display:none!important}}
+
+</style></head><body><div class="app">
+<header class="top"><div class="topline"><div class="brand"><i></i><div><h1>축제 원천데이터 통합분석</h1><div class="subtitle">축제별 연속 스크롤 보고서 · 원천 Excel 재집계</div></div></div><div class="controls"><button type="button" class="manage-btn" id="manageFestivalsBtn">수정</button><div class="control"><label for="yearSelect">연도</label><select id="yearSelect"></select></div></div></div><nav class="nav" id="festivalTabs" aria-label="축제 선택"></nav></header>
+<div class="manager-backdrop" id="festivalManager" aria-hidden="true" hidden><section class="manager" role="dialog" aria-modal="true" aria-labelledby="managerTitle"><div class="manager-head"><div><h2 id="managerTitle">축제 관리</h2><p>동일 포맷의 정규화 Excel을 추가하고, 축제 탭의 삭제·순서를 관리합니다.</p></div><button class="manager-close" id="managerClose" aria-label="닫기">×</button></div><div class="upload-box"><div class="upload-title-row"><b>축제 데이터 추가</b><select id="uploadModeSelect"><option value="excel" selected>Excel 1개</option><option value="csv">CSV 6개</option></select></div><div class="upload-mode-row"><label class="upload-choice" id="excelUploadBox"><span>Excel 파일 1개 (.xlsx/.xls/.xlsm/.xlsb)</span><input id="festivalExcelInput" type="file" accept=".xlsx,.xls,.xlsm,.xlsb,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.ms-excel.sheet.binary.macroEnabled.12"></label><label class="upload-choice" id="csvUploadBox" hidden><span>CSV 6개 한꺼번에</span><input id="festivalCsvInput" type="file" multiple accept=".csv,text/csv"></label></div><span class="upload-status" id="uploadStatus">동일 포맷의 Excel 1개를 선택하세요. (기준정보, DB1~DB5 시트 포함)</span></div><div class="festival-manage-list" id="festivalManageList"></div><div class="manager-actions"><button id="managerReset">기본 구성 복원</button><button id="downloadHtmlBtn">HTML 다운로드</button><button class="primary" id="managerDone">완료</button></div></section></div><main class="wrap" id="report"></main><nav class="quick-sec-nav" id="quickSecNav" aria-label="대제목 바로가기">
+  <button type="button" data-target="section1" aria-label="1. 전체 방문자 비교">1<span class="q-tip">1. 전체 방문자 비교</span></button>
+  <button type="button" data-target="section2" aria-label="2. 외국인 방문자 비교">2<span class="q-tip">2. 외국인 방문자 비교</span></button>
+  <button type="button" data-target="section3" aria-label="3. 성·연령별 비교">3<span class="q-tip">3. 성·연령별 비교</span></button>
+  <button type="button" data-target="section4" aria-label="4. 가구유형별 비교">4<span class="q-tip">4. 가구유형별 비교</span></button>
+  <button type="button" data-target="section5" aria-label="5. 거주지별 비교">5<span class="q-tip">5. 거주지별 비교</span></button>
+  <button type="button" data-target="section6" aria-label="6. 유입/체류인구 비교">6<span class="q-tip">6. 유입/체류인구 비교</span></button>
+  <button type="button" data-target="section7" aria-label="7. 숙박인구 비교">7<span class="q-tip">7. 숙박인구 비교</span></button>
+</nav><div class="chart-tip" id="chartTip" role="status" aria-live="polite"></div><div class="footer">집계 기준일 2026-11-24 · ./data 폴더 내 외부 Excel 파일 실시간 로딩 및 통합 분석</div></div>
+<script>const DATA={"generatedAt": "2026-11-18", "method": {"visitor": "DB1의 방문자수 합계. 연도 비교는 파일 내 전 연도 사용.", "foreign": "DB1에서 내국인을 제외한 국적 구분만 합산. 국가명 열이 없어 국가별 분석은 미제공.", "demographic": "DB1 내국인 중 성별 F/M 및 연령 코드가 있는 행.", "household": "DB2의 정규화된 가구유형(개선)과 가구수 사용. 1·2인가구 및 중년 자녀동거 중 자녀는 청년, 중년1인·중년2인·중년 자녀동거 중년은 중년으로 집계. 주중·주말은 날짜로 재판정.", "residence": "DB3 시도 명칭을 표준화한 뒤 방문인구수 합산.", "lodging": "기존 HTML과 동일하게 DB5 해당일자 숙박자수 및 숙박기간 원천 컬럼을 그대로 합산. 숙박 판정 재계산 없음.", "additional": "DB4 시간대별 유입·체류·평균체류시간, DB1 일자별 방문 집중도.", "visitorDetail": "일자별은 실제 행사일, 요일별은 방문일자의 요일로 DB1 방문자수를 합산.", "residenceDetail": "DB3 시도·시군구 명칭을 정규화하고 행사 개최 시도를 제외한 뒤 연도별 TOP 순위를 산출.", "flowDetail": "DB4 방문일자의 실제 요일로 주중·주말을 판정. 평균체류시간은 총체류시간/유입인구수 가중 방식.", "lodgingDetail": "DB5 해당일자 숙박자수, 숙박일수 열, 성·연령, 거주시도를 각각 연도별 집계.", "locationRuleV12": "개최시도가 서울특별시·광역시·세종특별자치시인 경우 해당 시도 전체를 제외합니다. 도 단위인 경우 거주지 분석에서는 개최 시군구만 제외합니다. 숙박 자료에는 시군구 열이 없어 도 단위 개최지의 시군구 제외는 추정하지 않고 미적용 사실을 명시합니다."}, "festivals": {}};;
+const C=['#e6007e','#087481','#2d6f91','#d99b00','#6f55a5','#4f8c5b','#c73e54','#5d6571'];
+const YEAR_COLORS={2024:'#4E79A7',2025:'#F28E2B',2026:'#E6007E'};
+const yearColor=y=>YEAR_COLORS[Number(y)]||'#6B7280';
+const FOREIGN_COLORS={'장기체류외국인':'#087481','단기체류외국인':'#D99B00'};
+const foreignLabel=x=>({'장기체류외국인':'장기체류 외국인','단기체류외국인':'단기체류 외국인'}[x]||x);
+const METHOD_KO={
+'전체 방문자':'일자별 방문자수를 합산해 연도별 전체 방문자수를 계산하고, 행사일 순번과 요일 기준 비교에도 같은 원천 수치를 사용합니다.',
+'외국인 방문자':'내국인을 제외하고 장기체류 외국인과 단기체류 외국인을 합산합니다. 국가명 자료가 없어 국가별 분석은 제공하지 않습니다.',
+'성별·연령별 방문자':'내국인 중 성별과 연령 값이 있는 방문자를 대상으로 집계합니다. 남성과 여성, 연령대별 인원과 구성비를 비교합니다.',
+'가구유형':'정규화된 가구유형 개선값과 가구수를 사용합니다. 1·2인가구와 중년 자녀동거 중 자녀는 청년, 중년 1인·2인과 중년 자녀동거 중 중년은 중년으로 집계합니다.',
+'거주지':'시도와 시군구 명칭을 정규화하고 기준정보의 개최시도와 개최 시군구를 적용해 개최지역을 제외한 뒤 구성비를 다시 계산합니다.',
+'유입·체류인구':'방문일자의 실제 요일로 주중과 주말을 구분합니다. 평균 체류시간은 총 체류시간을 유입인구수로 나눈 가중 방식으로 계산합니다.',
+'숙박인구':'기존 숙박 판정을 변경하지 않고 해당일자 숙박자수와 숙박일수 원천값을 사용합니다. 개최시도 거주 숙박자를 제외한 뒤 성별·연령별·거주시도별로 다시 집계합니다.',
+'개최지역 제외':'서울특별시·광역시·세종특별자치시는 개최시도 전체를 제외합니다. 도 단위 개최지는 거주지 분석에서 개최 시군구만 제외합니다. 숙박 원천에 시군구가 없으면 도 단위 개최지의 시군구 제외를 추정하지 않고 미적용 사실을 표시합니다.'};
+const AGE=['20세 미만','20대','30대','40대','50대','60대','70세 이상'];
+const fmt=n=>new Intl.NumberFormat('ko-KR',{maximumFractionDigits:0}).format(Number(n||0));
+const pct=n=>`${Number(n||0).toFixed(1)}%`;
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const sum=a=>a.reduce((x,y)=>x+Number(y||0),0);
+const share=(v,t)=>t?Number(v)/t*100:0;
+function table(headers,rows,note=''){return `<div class="table-wrap"><table class="data-table"><thead><tr>${headers.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join('')}</tr>`).join('')}</tbody></table></div>${note?`<div class="note">${note}</div>`:''}`}
+function legend(series){return `<div class="legend">${series.map((s,i)=>`<span><i style="background:${s.color||C[i%C.length]}"></i>${esc(s.name)}</span>`).join('')}</div>`}
+let CHART_PANEL_SEQ=0,ACTIVE_CHART_PANEL='';
+function nextChartPanel(){ACTIVE_CHART_PANEL=`chartInfo${++CHART_PANEL_SEQ}`;return ACTIVE_CHART_PANEL}
+function tipAttr(title,detail,panelId=ACTIVE_CHART_PANEL,seriesKey=""){return `tabindex="0" role="button" aria-pressed="false" data-panel-id="${esc(panelId)}" data-series-key="${esc(seriesKey)}" data-tip-title="${esc(title)}" data-tip-detail="${esc(detail)}"`}
+function chartPanel(id,message='그래프 항목을 선택하면 항목 설명과 수치가 표시됩니다.'){return `<div class="chart-selection" id="${id}" data-default-message="${esc(message)}" aria-live="polite"><span class="selection-label">선택 상태</span><span class="selection-title">${esc(message)}</span><span class="selection-label">수치 정보</span><span class="selection-detail">항목을 클릭해 주세요.</span></div>`}
+function groupedChart(categories,series,opt={}){const panelId=nextChartPanel(),W=opt.width||920,H=opt.height||330,L=66,R=18,T=22,B=72,iw=W-L-R,ih=H-T-B;const max=opt.max||Math.max(1,...series.flatMap(s=>s.values));const slot=iw/categories.length,groupW=slot*.72,bw=Math.max(2,groupW/series.length);let g='';for(let i=0;i<=5;i++){let y=T+ih-i*ih/5,v=max*i/5;g+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="#e9e3e7"/><text x="${L-8}" y="${y+4}" text-anchor="end" font-size="10" fill="#776f74">${opt.percent?v.toFixed(0)+'%':fmt(v)}</text>`}categories.forEach((cat,ci)=>{let x0=L+slot*ci+(slot-groupW)/2;if(opt.weekend&&opt.weekend[ci])g+=`<rect x="${L+slot*ci+2}" y="${T}" width="${slot-4}" height="${ih}" rx="6" fill="#fff2f8" stroke="#e6007e" stroke-dasharray="4 3"/>`;series.forEach((sr,si)=>{let v=Number(sr.values[ci]||0),plotV=Math.min(v,max),h=plotV/max*ih,x=x0+si*bw,y=T+ih-h,detail=`구분: ${sr.name} · ${opt.percent?'구성비: '+v.toFixed(1)+'%':'실제 수치: '+fmt(v)}`;g+=`<rect ${tipAttr(cat,detail,panelId,sr.name)} x="${x}" y="${y}" width="${Math.max(1,bw-2)}" height="${h}" rx="2" fill="${sr.color||C[si%C.length]}"/>${v>max?`<text x="${x+Math.max(1,bw-2)/2}" y="${T+12}" text-anchor="middle" font-size="11" font-weight="900" fill="#c73e54">▲</text>`:''}`});let label=esc(cat),rot=categories.length>7?-38:0,x=L+slot*(ci+.5),y=H-B+18;g+=`<text x="${x}" y="${y}" text-anchor="${rot?'end':'middle'}" transform="rotate(${rot} ${x} ${y})" font-size="10" fill="#5e565b">${label}</text>`});return `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(opt.aria||'막대그래프')}">${g}</svg></div>${chartPanel(panelId)}${legend(series)}`}
+function stacked100(categories,segments,opt={}){const panelId=nextChartPanel(),W=920,H=300,L=80,R=25,T=26,B=55,iw=W-L-R,ih=H-T-B,slot=iw/categories.length,bw=Math.min(92,slot*.55);let g='';for(let i=0;i<=4;i++){let y=T+ih-i*ih/4;g+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="#e9e3e7"/><text x="${L-8}" y="${y+4}" text-anchor="end" font-size="10" fill="#776f74">${i*25}%</text>`}categories.forEach((cat,ci)=>{let total=sum(segments.map(x=>x.values[ci])),base=T+ih,x=L+slot*(ci+.5)-bw/2;segments.forEach((sr,si)=>{let raw=Number(sr.values[ci]||0),p=share(raw,total),h=p/100*ih;base-=h;g+=`<rect ${tipAttr(cat,`구분: ${sr.name} · 실제 수치: ${fmt(raw)} · 구성비: ${p.toFixed(1)}%`,panelId,sr.name)} x="${x}" y="${base}" width="${bw}" height="${h}" fill="${sr.color||C[si%C.length]}"/>`});g+=`<text x="${x+bw/2}" y="${H-B+19}" text-anchor="middle" font-size="11" font-weight="700">${esc(cat)}</text>`});return `<div class="chart"><svg viewBox="0 0 ${W} ${H}">${g}</svg></div>${chartPanel(panelId)}${legend(segments)}`}
+function hGrouped(categories,series,opt={}){const panelId=nextChartPanel(),W=930,L=150,R=55,T=28,B=30,row=36,H=T+B+categories.length*row,iw=W-L-R,max=opt.max||Math.max(1,...series.flatMap(s=>s.values));let g='';categories.forEach((cat,ci)=>{let gy=T+ci*row,bh=Math.min(10,22/series.length);g+=`<text x="${L-8}" y="${gy+14}" text-anchor="end" font-size="10" fill="#5d555a">${esc(cat)}</text>`;series.forEach((sr,si)=>{let v=Number(sr.values[ci]||0),y=gy+si*(bh+2),w=v/max*iw,display=opt.percent?v.toFixed(1)+'%':fmt(v);g+=`<rect ${tipAttr(cat,`구분: ${sr.name} · ${opt.percent?'구성비: '+v.toFixed(1)+'%':'실제 수치: '+fmt(v)}`,panelId,sr.name)} x="${L}" y="${y}" width="${w}" height="${bh}" rx="3" fill="${sr.color||C[si%C.length]}"/><text x="${L+w+5}" y="${y+bh-1}" font-size="9" fill="#665e63">${display}</text>`})});return `<div class="chart"><svg viewBox="0 0 ${W} ${H}">${g}</svg></div>${chartPanel(panelId)}${legend(series)}`}
+function lineChart(categories,series,opt={}){const panelId=nextChartPanel(),W=920,H=320,L=66,R=25,T=28,B=60,iw=W-L-R,ih=H-T-B,max=opt.max||Math.max(1,...series.flatMap(s=>s.values));let g='';for(let i=0;i<=5;i++){let y=T+ih-i*ih/5,v=max*i/5;g+=`<line x1="${L}" y1="${y}" x2="${W-R}" y2="${y}" stroke="#e9e3e7"/><text x="${L-8}" y="${y+4}" text-anchor="end" font-size="10" fill="#776f74">${opt.percent?v.toFixed(0)+'%':fmt(v)}</text>`}series.forEach((sr,si)=>{let pts=sr.values.map((v,i)=>`${L+(categories.length===1?iw/2:i*iw/(categories.length-1))},${T+ih-v/max*ih}`).join(' ');g+=`<polyline class="series-line" data-panel-id="${esc(panelId)}" data-series-key="${esc(sr.name)}" points="${pts}" fill="none" stroke="${sr.color||C[si%C.length]}" stroke-width="3" pointer-events="none"/>`;for(let i=0;i<sr.values.length-1;i++){const x1=L+(categories.length===1?iw/2:i*iw/(categories.length-1)),y1=T+ih-sr.values[i]/max*ih,x2=L+(i+1)*iw/(categories.length-1),y2=T+ih-sr.values[i+1]/max*ih,d1=opt.percent?Number(sr.values[i]).toFixed(1)+'%':fmt(sr.values[i]),d2=opt.percent?Number(sr.values[i+1]).toFixed(1)+'%':fmt(sr.values[i+1]);g+=`<line class="line-hit" ${tipAttr(`${categories[i]} → ${categories[i+1]}`,`구분: ${sr.name} · 시작 수치: ${d1} · 종료 수치: ${d2}`,panelId,sr.name)} x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="transparent" stroke-width="14"/>`}sr.values.forEach((v,i)=>{let x=L+(categories.length===1?iw/2:i*iw/(categories.length-1)),y=T+ih-v/max*ih;g+=`<circle ${tipAttr(categories[i],`구분: ${sr.name} · ${opt.percent?'구성비: '+Number(v).toFixed(1)+'%':'실제 수치: '+fmt(v)}`,panelId,sr.name)} cx="${x}" cy="${y}" r="6" fill="${sr.color||C[si%C.length]}" stroke="#fff" stroke-width="2"/>`})});categories.forEach((x,i)=>{let px=L+(categories.length===1?iw/2:i*iw/(categories.length-1));g+=`<text x="${px}" y="${H-B+20}" text-anchor="middle" font-size="10">${esc(x)}</text>`});return `<div class="chart"><svg viewBox="0 0 ${W} ${H}">${g}</svg></div>${chartPanel(panelId)}${legend(series)}`}
+function genderAgePyramid(d,ys){const panelId=nextChartPanel(),W=980,CX=490,GAP=104,L=45,R=45,T=58,B=46,rowH=54,H=T+B+AGE.length*rowH,half=CX-GAP/2-L,all=[];ys.forEach(y=>{const dm=d.demographics[y],total=sum(dm.gender.map(x=>x.value));AGE.forEach(a=>{all.push(share(rowMap(dm.genderAge.M)[a]?.value||0,total),share(rowMap(dm.genderAge.F)[a]?.value||0,total))})});const max=Math.max(1,...all),bw=Math.min(11,30/ys.length),groupH=ys.length*(bw+2);let g=`<text x="${CX-GAP/2-half/2}" y="24" text-anchor="middle" font-size="14" font-weight="900" fill="#176B8C">남성</text><text x="${CX+GAP/2+half/2}" y="24" text-anchor="middle" font-size="14" font-weight="900" fill="#ED3B9A">여성</text><line x1="${CX}" y1="${T-18}" x2="${CX}" y2="${H-B+5}" stroke="#d7d0d5"/>`;AGE.forEach((a,ai)=>{const cy=T+ai*rowH+rowH/2;g+=`<text x="${CX}" y="${cy+4}" text-anchor="middle" font-size="11" font-weight="800" fill="#4f484d">${esc(a)}</text>`;ys.forEach((y,yi)=>{const dm=d.demographics[y],total=sum(dm.gender.map(x=>x.value)),mv=rowMap(dm.genderAge.M)[a]?.value||0,fv=rowMap(dm.genderAge.F)[a]?.value||0,mp=share(mv,total),fp=share(fv,total),mw=mp/max*half,fw=fp/max*half,yy=cy-groupH/2+yi*(bw+2);g+=`<rect ${tipAttr(`${y}년 남성 · ${a}`,`구분: 남성 · 실제 수치: ${fmt(mv)}명 · 구성비: ${mp.toFixed(1)}%`,panelId,`${y}년`)} x="${CX-GAP/2-mw}" y="${yy}" width="${mw}" height="${bw}" rx="2" fill="${yearColor(y)}"/><rect ${tipAttr(`${y}년 여성 · ${a}`,`구분: 여성 · 실제 수치: ${fmt(fv)}명 · 구성비: ${fp.toFixed(1)}%`,panelId,`${y}년`)} x="${CX+GAP/2}" y="${yy}" width="${fw}" height="${bw}" rx="2" fill="${yearColor(y)}"/>`})});return `<div class="card"><div class="pyramid-chart chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="연도별 성별 연령별 비교 그래프">${g}</svg></div>${chartPanel(panelId,'막대를 선택하면 연도·성별·연령별 구성비와 인원이 표시됩니다.')}<div class="pyramid-legend"><span><i style="background:#176B8C"></i>남성(좌)</span><span><i style="background:#ED3B9A"></i>여성(우)</span></div>${legend(ys.map(y=>({name:y+'년',color:yearColor(y)})))}</div>`}
+function page(id,no,title,lead,body){return `<section class="page" id="${id}" data-page="${id}"><div class="page-head"><span class="secno">${no}</span><h3>${title}</h3></div><p class="lead">${lead}</p>${body}</section>`}
+function rowMap(arr){return Object.fromEntries((arr||[]).map(x=>[x.label,x]))}
+function selectedYears(d){if(state.year==='all')return d.years;if(state.year==='compare2526')return d.years.filter(y=>y===2025||y===2026);const cutoff=Number(state.year);return d.years.filter(y=>Number(y)<=cutoff)}
+function focusYear(d){return state.year==='all'||state.year==='compare2526'?Math.max(...d.years):Number(state.year)}
+let state={festival:'ace',year:'all'};
+const WEEK=['월','화','수','목','금','토','일'];
+function render(){resetChartSelections();const d=DATA.festivals[state.festival];applyForeignFromSource(d);const ys=selectedYears(d),fy=focusYear(d);updateReportHeading(d);document.getElementById('report').innerHTML=cover(d,fy)+tocPage()+section1(d,ys)+section2(d,ys)+section3(d,ys)+section4(d,ys)+section5(d,ys)+section6(d,ys)+section7(d,ys)+methodPage(d);buildFestivalTabs();bindTocNavigation();bindChartTips();bindQuickSectionNav();document.getElementById('report').scrollTo({top:0,behavior:'smooth'});}
+function cover(d,fy){const total=d.annualVisits[fy],prev=d.annualVisits[fy-1],yoy=prev?(total/prev-1)*100:null,foreign=d.foreignAnnual[fy],lod=d.lodgingRuleAnnual[fy]?.total||0;return `<section class="page cover" id="cover"><div class="eyebrow">NORMALIZED SOURCE DATA · INTERACTIVE REPORT</div><h2>${esc(festivalReportTitle(d))}<br>통합 비교 분석</h2><p>7개 분석 영역과 19개 세부 목차로 구성했습니다. 축제 탭과 연도 조건을 바꾸면 연도 비교 표·그래프가 갱신되며, 2026년 지정 분석은 동일하게 유지됩니다.</p><div class="kpis"><div class="kpi"><b>${fmt(total)}명</b><span>${fy} 방문자수</span></div><div class="kpi"><b>${yoy==null?'비교 없음':(yoy>=0?'+':'')+yoy.toFixed(1)+'%'}</b><span>전년 대비</span></div><div class="kpi"><b>${fmt(foreign)}명</b><span>외국인 방문자</span></div><div class="kpi"><b>${fmt(lod)}명·일</b><span>지역 제외 기준 적용 숙박인구</span></div></div>${coverMetaBlock(d)}</section>`}
+function tocPage(){const groups=[['1','전체 방문자 비교',['1.1 연도별 방문자 비교','1.2 일자별 방문자 비교','1.3 요일별 방문자 비교']],['2','외국인 방문자 비교',[]],['3','성·연령별 비교',['3.1 연도별×성별 비교','3.2 연도별×연령별 비교','3.3 연도별×성×연령별 비교','3.4 26년 일자별×연령별 비교']],['4','가구유형별 비교',['4.1 연도별×가구유형별 비교','4.2 26년 주중/주말×가구유형별 비교','4.3 26년 주중/주말×키즈맘 유형별 비교']],['5','거주지별 비교',['5.1 거주지 TOP10 시도 연도별 비교(행사 시도 제외)','5.2 거주지 TOP20 시군구 연도별 비교(행사 시도 제외)']],['6','유입/체류인구 비교',['6.1 26년 시간대별 유입인구/체류인구 분석','6.2 26년 주중/주말 시간대별 유입인구/체류인구 분석','6.3 연도별 시간대별 체류시간 분석']],['7','숙박인구 비교',['7.1 연도별 숙박자 비중 및 숙박일수 비중','7.2 연도별 숙박자 성·연령 비교','7.3 연도별 숙박자 거주시도 비교']]];return `<section class="page toc" id="toc"><div class="page-head"><span class="secno">목차</span><h3>분석 목차</h3></div><div class="year-key"><b>연도 공통 색상</b><span><i style="background:${yearColor(2024)}"></i>2024년</span><span><i style="background:${yearColor(2025)}"></i>2025년</span><span><i style="background:${yearColor(2026)}"></i>2026년</span></div><div class="toc-grid">${groups.map(g=>`<article class="toc-item"><a class="toc-main-link" href="#section${g[0]}">${g[0]}. ${g[1]}</a>${g[2].map(x=>`<span class="toc-sub-link">${x}</span>`).join('')}</article>`).join('')}</div></section>`}
+function jumpMainToc(id){const target=document.getElementById(id);if(!target)return false;const rect=target.getBoundingClientRect();const y=window.scrollY+rect.top-12;window.scrollTo({top:Math.max(0,y),behavior:'auto'});try{history.replaceState(null,'','#'+id)}catch(_){};return false}
+function bindTocNavigation(){}
+
+function subhead(no,title,desc='',action=''){const sid='sub-'+String(no).replace(/[^0-9]+/g,'-').replace(/^-|-$/g,'');return `<div class="subhead" id="${sid}"><b>${no}</b><div><h4>${title}</h4>${desc?`<p>${desc}</p>`:''}</div>${action}</div>`}
+function togglePair(simpleId,detailId,btn,simpleText='상세보기',detailText='간단히 보기'){resetChartSelections();const a=document.getElementById(simpleId),b=document.getElementById(detailId),showDetail=b.classList.contains('hidden');a.classList.toggle('hidden',showDetail);b.classList.toggle('hidden',!showDetail);btn.textContent=showDetail?detailText:simpleText}
+function topLabelsAcross(years,getter,limit){const t={};years.forEach(y=>(getter(y)||[]).forEach(x=>t[x.label]=(t[x.label]||0)+x.value));return Object.entries(t).sort((a,b)=>b[1]-a[1]).slice(0,limit).map(x=>x[0])}
+function section1(d,ys){const annual=ys.map(y=>d.annualVisits[y]||0);const dailyCats=Array.from({length:Math.max(...ys.map(y=>(d.dailyOrdinal[y]||[]).length))},(_,i)=>`D${i+1}`);const dailySeries=ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:dailyCats.map((_,j)=>d.dailyOrdinal[y]?.[j]?.value||0)}));const weekdaySeries=ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:WEEK.map(w=>rowMap(d.weekdayVisits[y])[w]?.value||0)}));const dailyRows=dailyCats.map((x,i)=>[x,...ys.map(y=>{const z=d.dailyOrdinal[y]?.[i];return z?`${z.date.slice(5)}(${z.weekday}) ${fmt(z.value)}`:'–'})]);return page('section1','1','전체 방문자 비교','DB1 방문자수를 연도·행사일 순번·요일 기준으로 비교합니다.',`${subhead('1.1','연도별 방문자 비교')}<div class="grid2"><div class="card">${groupedChart(['방문자수'],ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:[annual[i]]})))}</div><div>${table(['연도','방문자수','전년 대비'],ys.map(y=>{const p=d.annualVisits[y-1],v=d.annualVisits[y];return [y+'년',fmt(v),p?`${v>=p?'+':''}${((v/p-1)*100).toFixed(1)}%`:'–']}))}</div></div>${subhead('1.2','일자별 방문자 비교','행사 시작일을 D1로 맞춰 행사기간이 다른 연도도 같은 순번으로 비교합니다.')}<div class="card">${lineChart(dailyCats,dailySeries)}</div>${table(['행사일',...ys.map(y=>y+'년 일자·요일·방문자')],dailyRows)}${subhead('1.3','요일별 방문자 비교','같은 요일이 여러 번 있으면 해당 요일 방문자수를 합산합니다.')}<div class="card">${groupedChart(WEEK,weekdaySeries)}</div>`)}
+function section2(d,ys){const vals=ys.map(y=>d.foreignAnnual[y]||0),cats=[...new Set(ys.flatMap(y=>(d.foreignCategories[y]||[]).map(x=>x.label)))],segments=cats.map(c=>({name:foreignLabel(c),color:FOREIGN_COLORS[c]||'#6F55A5',values:ys.map(y=>rowMap(d.foreignCategories[y])[c]?.value||0)}));const rows=[];ys.forEach(y=>(d.foreignCategories[y]||[]).forEach(x=>rows.push([y+'년',esc(foreignLabel(x.label)),fmt(x.value),pct(share(x.value,d.foreignAnnual[y]))])));return page('section2','2','외국인 방문자 비교','내국인은 제외하고 장기체류 외국인과 단기체류 외국인을 비교합니다.',`<div class="grid2"><div class="card"><h4>연도별 외국인 방문자수</h4>${groupedChart(['외국인 방문자'],ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:[vals[i]]})))}</div><div class="card"><h4>외국인 유형 구성비</h4>${stacked100(ys.map(String),segments)}</div></div>${table(['연도','외국인 구분','방문자수','구성비'],rows)}<div class="note">연도 색상: 2024년 파랑, 2025년 주황, 2026년 분홍. 유형 색상: 장기체류 외국인 청록, 단기체류 외국인 황금색.</div><div class="warn">원천에는 국가명이 없어 국가별 비교는 제공하지 않습니다.</div>`) }
+function section3(d,ys){const genderSeg=['F','M'].map((g,i)=>({name:g==='F'?'여성':'남성',color:g==='F'?'#ED3B9A':'#176B8C',values:ys.map(y=>rowMap(d.demographics[y]?.gender)[g]?.value||0)}));const ageSeries=ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:AGE.map(a=>rowMap(d.demographics[y]?.age)[a]?.share||0)}));const dy=d.dailyDemographics['2026']||{},dates=Object.keys(dy),weekend=dates.map(x=>[0,6].includes(new Date(x+'T00:00:00').getDay())),dailySeries=AGE.map((a,i)=>({name:a,color:C[i%C.length],values:dates.map(dt=>rowMap(dy[dt].age)[a]?.share||0)}));return page('section3','3','성·연령별 비교','DB1 내국인 중 성별·연령 값이 있는 방문자를 기준으로 비교합니다.',`${subhead('3.1','연도별×성별 비교')}<div class="card">${stacked100(ys.map(String),genderSeg)}</div>${subhead('3.2','연도별×연령별 비교')}<div class="card">${hGrouped(AGE,ageSeries,{percent:true})}</div>${subhead('3.3','연도별×성×연령별 비교','남성은 왼쪽, 여성은 오른쪽에 배치하고 연도별 고정 색상으로 한 그래프에서 비교합니다.')}<div class="pyramid-grid">${genderAgePyramid(d,ys)}</div>${subhead('3.4','26년 일자별×연령별 비교','점선 배경은 주말입니다. 막대를 선택하면 같은 연령대의 모든 일자 막대가 함께 강조됩니다.')}<div class="card">${groupedChart(dates.map(x=>x.slice(5)),dailySeries,{percent:true,max:Math.max(35,...dailySeries.flatMap(x=>x.values)),weekend})}</div>`) }
+function mergeKidsmom(arr){const out={};(arr||[]).forEach(x=>{const k=x.label.startsWith('키즈맘')?'키즈맘':x.label;out[k]=(out[k]||0)+x.value});return Object.entries(out).map(([label,value])=>({label,value,share:share(value,sum(Object.values(out)))}))}
+function householdDetailGroup(label){if(label==='1인가구'||label==='2인가구'||label==='중년_자녀동거_자녀')return '청년';if(label.startsWith('키즈맘'))return '키즈맘';if(label==='중년_1인'||label==='중년_2인'||label==='중년_자녀동거_중년')return '중년';if(label==='시니어')return '시니어';return '기타'}
+function householdDetailOrder(labels){const order=['청년','키즈맘','중년','시니어','기타'];return [...labels].sort((a,b)=>{const ga=order.indexOf(householdDetailGroup(a)),gb=order.indexOf(householdDetailGroup(b));return ga-gb||a.localeCompare(b,'ko')})}
+function section4(d,ys){const mergedAnnual=Object.fromEntries(ys.map(y=>[y,mergeKidsmom(d.householdAnnual[y])])),simpleCats=['청년','키즈맘','중년','시니어'].filter(c=>ys.some(y=>rowMap(mergedAnnual[y])[c])),simpleAnnual=ys.map(y=>({name:y+'년',color:yearColor(y),values:simpleCats.map(c=>rowMap(mergedAnnual[y])[c]?.share||0)}));const detailGetter=y=>d.householdOriginalAnnual[y]||[],detailCats=householdDetailOrder([...new Set(ys.flatMap(y=>detailGetter(y).map(x=>x.label)))]),detailAnnual=ys.map(y=>({name:y+'년',color:yearColor(y),values:detailCats.map(c=>rowMap(detailGetter(y))[c]?.share||0)}));const wp=d.householdWeekpart['2026']||{},mergedWp={주중:mergeKidsmom(wp['주중']),주말:mergeKidsmom(wp['주말'])},simpleWp=['주중','주말'].map((w,i)=>({name:w,color:i?C[0]:C[1],values:simpleCats.map(c=>rowMap(mergedWp[w])[c]?.share||0)}));const detailWp=d.householdOriginalWeekpart['2026']||{},detailWpCats=householdDetailOrder([...new Set(['주중','주말'].flatMap(w=>(detailWp[w]||[]).map(x=>x.label)))]),detailWpSeries=['주중','주말'].map((w,i)=>({name:w,color:i?C[0]:C[1],values:detailWpCats.map(c=>rowMap(detailWp[w])[c]?.share||0)}));const rawCats=[...new Set(['주중','주말'].flatMap(w=>(wp[w]||[]).filter(x=>x.label.startsWith('키즈맘')).map(x=>x.label)))],kidSeries=['주중','주말'].map((w,i)=>{const ar=(wp[w]||[]).filter(x=>x.label.startsWith('키즈맘')),total=sum(ar.map(x=>x.value));return {name:w,color:i?C[0]:C[1],values:rawCats.map(c=>share(rowMap(ar)[c]?.value||0,total))}});const btn1=`<button class="view-toggle" onclick="togglePair('hhAnnualSimple','hhAnnualDetail',this)">상세보기</button>`,btn2=`<button class="view-toggle" onclick="togglePair('hhWeekSimple','hhWeekDetail',this)">상세보기</button>`;return page('section4','4','가구유형별 비교','기본은 청년·키즈맘·중년·시니어 4개 유형이며, 상세보기에서는 청년 → 키즈맘 → 중년 → 시니어 순으로, 각 그룹 안에서는 가나다순으로 원천 가구 세그먼트를 표시합니다.',`${subhead('4.1','연도별×가구유형별 비교','상세보기는 청년 → 키즈맘 → 중년 → 시니어 순이며 그룹 내 가나다순입니다.',btn1)}<div id="hhAnnualSimple" class="view-block card">${hGrouped(simpleCats,simpleAnnual,{percent:true})}</div><div id="hhAnnualDetail" class="view-block card hidden">${hGrouped(detailCats,detailAnnual,{percent:true})}</div>${subhead('4.2','26년 주중/주말×가구유형별 비교','상세보기는 청년 → 키즈맘 → 중년 → 시니어 순이며 그룹 내 가나다순입니다.',btn2)}<div id="hhWeekSimple" class="view-block card">${hGrouped(simpleCats,simpleWp,{percent:true})}</div><div id="hhWeekDetail" class="view-block card hidden">${hGrouped(detailWpCats,detailWpSeries,{percent:true})}</div>${subhead('4.3','26년 주중/주말×키즈맘 유형별 비교','키즈맘 내부의 초등·중등·미취학 세부 구성을 비교합니다.')}<div class="card">${hGrouped(rawCats,kidSeries,{percent:true,max:100})}</div>`) }
+function exclusionNote(d,type,ys){const x=d.locationRuleV12,hp=x.hostProvince,hd=x.hostDistrict;if(type==='residence'){const z=ys.map(y=>`${y}년 ${fmt(x.residenceAudit[y]?.excludedValue||0)}명`).join(' · ');return `<div class="exclusion-note"><b>개최지역 제외 기준</b>개최시도: ${esc(hp)} · 개최 시군구: ${esc(hd)} · 행정단위: ${esc(x.administrativeType)}<br>${esc(x.residenceMode)} 규칙을 적용했습니다. 실제 제외 규모: ${z}.</div>`}const z=ys.map(y=>`${y}년 ${fmt(x.lodgingAudit[y]?.excludedValue||0)}명·일`).join(' · ');if(!x.lodgingDistrictAvailable&&x.administrativeType==='도단위')return `<div class="exclusion-note"><b>숙박 개최지역 제외 기준</b>개최시도: ${esc(hp)} · 개최 시군구: ${esc(hd)}<br>도 단위 개최지는 개최 시군구만 제외해야 하지만 숙박 원천에는 시군구 열이 없어 정확한 제외가 불가능합니다. 임의 추정이나 ${esc(hp)} 전체 제외를 하지 않고 원천 숙박값을 유지했습니다.</div>`;return `<div class="exclusion-note"><b>숙박 개최지역 제외 기준</b>개최시도: ${esc(hp)} · 개최 시군구: ${esc(hd)}<br>${esc(x.lodgingMode)} 규칙을 적용했습니다. 실제 제외 규모: ${z}.</div>`}
+function section5(d,ys){const provGetter=y=>d.residenceRuleAnnual[y]||[],allProvs=topLabelsAcross(ys,provGetter,50),topProvs=allProvs.slice(0,10),mkProv=cats=>ys.map(y=>({name:y+'년',color:yearColor(y),values:cats.map(c=>rowMap(provGetter(y))[c]?.share||0)}));const distGetter=y=>d.residenceDistrictRuleAnnual[y]||[],allDists=topLabelsAcross(ys,distGetter,40),top20=allDists.slice(0,20),mkDist=cats=>ys.map(y=>({name:y+'년',color:yearColor(y),values:cats.map(c=>rowMap(distGetter(y))[c]?.share||0)}));const btn1=`<button class="view-toggle" onclick="togglePair('resTop10','resAll',this,'전체보기','TOP10 보기')">전체보기</button>`,btn2=`<button class="view-toggle" onclick="togglePair('distTop20','distTop40',this,'TOP40 보기','TOP20 보기')">TOP40 보기</button>`;return page('section5','5','거주지별 비교',`개최시도가 도시 단위이면 해당 시도를 제외하고, 도 단위이면 개최 시군구만 제외합니다.`,`${subhead('5.1','거주지 TOP10 시도 연도별 비교','TOP10과 전체 시도 보기를 전환합니다.',btn1)}<div id="resTop10" class="view-block card">${hGrouped(topProvs,mkProv(topProvs),{percent:true})}</div><div id="resAll" class="view-block card hidden">${hGrouped(allProvs,mkProv(allProvs),{percent:true})}</div>${exclusionNote(d,'residence',ys)}${subhead('5.2','거주지 TOP20 시군구 연도별 비교','TOP20과 TOP40 보기를 전환합니다.',btn2)}<div id="distTop20" class="view-block card">${hGrouped(top20,mkDist(top20),{percent:true})}</div><div id="distTop40" class="view-block card hidden">${hGrouped(allDists,mkDist(allDists),{percent:true})}</div>${exclusionNote(d,'residence',ys)}`)}
+function flowSeries(arr){const inflowT=sum(arr.map(x=>x.inflow)),stayT=sum(arr.map(x=>x.stay));return [{name:'유입인구 비중',color:C[0],values:arr.map(x=>share(x.inflow,inflowT))},{name:'체류인구 비중',color:C[1],values:arr.map(x=>share(x.stay,stayT))}]}
+function section6(d,ys){const f26=d.flowAnnual['2026']||[],hours=f26.map(x=>x.hour+'시'),wp=d.flowWeekpart['2026']||{};const avgSeries=ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:(d.flowAnnual[y]||[]).map(x=>x.avgStay)})),allHours=[...new Set(ys.flatMap(y=>(d.flowAnnual[y]||[]).map(x=>x.hour)))].sort((a,b)=>a-b),alignedAvg=ys.map((y,i)=>{const m=Object.fromEntries((d.flowAnnual[y]||[]).map(x=>[x.hour,x.avgStay]));return {name:y+'년',color:yearColor(y),values:allHours.map(h=>m[h]||0)}});return page('section6','6','유입/체류인구 비교','DB4 시간대별 유입·체류 및 유입객 평균체류시간을 분석합니다.',`${subhead('6.1','26년 시간대별 유입인구/체류인구 분석','유입·체류 각각의 2026년 합계를 100으로 환산했습니다.')}<div class="card">${lineChart(hours,flowSeries(f26),{percent:true,max:Math.max(20,...flowSeries(f26).flatMap(x=>x.values))})}</div>${subhead('6.2','26년 주중/주말 시간대별 유입인구/체류인구 분석')}<div class="grid2"><div class="card"><h4>주중</h4>${lineChart((wp['주중']||[]).map(x=>x.hour+'시'),flowSeries(wp['주중']||[]),{percent:true})}</div><div class="card"><h4>주말</h4>${lineChart((wp['주말']||[]).map(x=>x.hour+'시'),flowSeries(wp['주말']||[]),{percent:true})}</div></div>${subhead('6.3','연도별 시간대별 체류시간 분석','유입 시간대별 가중 평균 체류시간(분)입니다.')}<div class="card">${lineChart(allHours.map(x=>x+'시'),alignedAvg)}</div>`)}
+function nightOrder(label){const m=String(label).match(/(\d+)/);return m?Number(m[1]):99}
+function withoutUnknown(arr){const a=(arr||[]).filter(x=>x.label&&x.label!=='미상'),t=sum(a.map(x=>x.value));return a.map(x=>({...x,share:share(x.value,t)}))}
+function section7(d,ys){const lod=y=>d.lodgingRuleAnnual[y]||{total:0,gender:[],age:[],nights:[]},ratios=ys.map(y=>share(lod(y).total||0,d.annualVisits[y]||0));const nightCats=[...new Set(ys.flatMap(y=>(lod(y).nights||[]).map(x=>x.label)))].sort((a,b)=>nightOrder(a)-nightOrder(b)),nightSeries=ys.map(y=>({name:y+'년',color:yearColor(y),values:nightCats.map(c=>rowMap(lod(y).nights)[c]?.share||0)}));const genderShareSeries=['F','M'].map(g=>({name:g==='F'?'여성':'남성',color:g==='F'?'#ED3B9A':'#176B8C',values:ys.map(y=>rowMap(lod(y).gender)[g]?.share||0)})),ageSeries=ys.map(y=>({name:y+'년',color:yearColor(y),values:AGE.map(a=>rowMap(lod(y).age)[a]?.share||0)}));const knownResidence=Object.fromEntries(ys.map(y=>[y,withoutUnknown(d.lodgingResidenceRuleAnnual[y])])),resCats=topLabelsAcross(ys,y=>knownResidence[y],10),resSeries=ys.map(y=>({name:y+'년',color:yearColor(y),values:resCats.map(c=>rowMap(knownResidence[y])[c]?.share||0)}));const ratioSeries=ys.map((y,i)=>({name:y+'년',color:yearColor(y),values:[ratios[i]]})),axisMax=60,leftOpt={percent:true,max:axisMax,width:440,height:330},rightOpt={percent:true,max:axisMax,width:920,height:330};return page('section7','7','숙박인구 비교',`개최시도가 도시 단위이면 해당 시도를 제외합니다. 도 단위 개최지는 숙박 원천에 시군구가 없어 임의 추정 없이 원천 숙박값을 유지합니다.`,`${subhead('7.1','연도별 숙박자 비중 및 숙박일수 비중','숙박인구 관련 구성비 그래프의 y축 최대값은 60%입니다. 60% 초과 값은 상단에 ▲로 표시되며 클릭하면 실제 수치를 확인할 수 있습니다.')}<div class="grid-1-2 lodging-equal-height"><div class="card"><h4>지역 제외 기준 적용 숙박자 명·일/방문자 비율</h4>${groupedChart(['숙박자 비율'],ratioSeries,{...leftOpt,aria:'숙박자 비율'})}</div><div class="card"><h4>숙박일수 구성비</h4>${groupedChart(nightCats,nightSeries,{...rightOpt,aria:'숙박일수별 구성비'})}</div></div>${exclusionNote(d,'lodging',ys)}${subhead('7.2','연도별 숙박자 성·연령 비교','성별·연령별 구성비 그래프의 y축 최대값은 60%입니다.')}<div class="grid-1-2 lodging-equal-height"><div class="card"><h4>성별 구성</h4>${groupedChart(ys.map(String),genderShareSeries,{...leftOpt,aria:'숙박자 성별 구성비'})}</div><div class="card"><h4>연령별 구성</h4>${groupedChart(AGE,ageSeries,{...rightOpt,aria:'숙박자 연령별 구성비'})}</div></div>${exclusionNote(d,'lodging',ys)}${subhead('7.3','연도별 숙박자 거주시도 비교','거주시도가 미상인 항목은 제외하고, 알려진 거주시도 합계를 기준으로 구성비를 다시 계산했습니다.')}<div class="card">${hGrouped(resCats,resSeries,{percent:true})}</div><div class="note">※ 거주시도 ‘미상’은 순위와 구성비 분모에서 제외했습니다.</div>${exclusionNote(d,'lodging',ys)}`)}
+function methodPage(d){return page('method','부록','집계 기준','세 축제 모두 정규화된 원천 자료의 방문자·가구·거주지·유입체류·숙박 표를 사용했습니다.',`<dl class="method">${Object.entries(METHOD_KO).map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${(d.dataWarnings||[]).map(x=>`<div class="warn"><b>원천 데이터 주의</b><br>${esc(x)}</div>`).join('')}<div class="note">각 축제의 정규화된 원본 엑셀 자료를 사용했으며, 데이터가 없는 항목은 임의로 만들지 않았습니다.</div>`) }
+function findDataMark(node,root){let cur=node;while(cur&&cur!==root){if(cur.nodeType===1&&cur.hasAttribute&&cur.hasAttribute('data-tip-title'))return cur;cur=cur.parentNode}return null}
+function resetChartSelections(root=document.getElementById('report')){const tip=document.getElementById('chartTip');if(root){root.querySelectorAll('[data-tip-title].selected-mark').forEach(x=>{x.classList.remove('selected-mark');x.setAttribute('aria-pressed','false')});root.querySelectorAll('[data-series-key].series-highlight,[data-series-key].series-muted').forEach(x=>x.classList.remove('series-highlight','series-muted'));root.querySelectorAll('.chart-selection').forEach(panel=>{panel.classList.remove('active');delete panel.dataset.selected;const title=panel.querySelector('.selection-title'),detail=panel.querySelector('.selection-detail');if(title)title.textContent=panel.dataset.defaultMessage||'그래프 항목을 선택하면 항목 설명과 수치가 표시됩니다.';if(detail)detail.textContent='항목을 클릭해 주세요.'})}if(tip){tip.style.display='none';tip.textContent=''}}
+function chartAnalysisKey(el){let node=el.closest?.('.card,.pyramid-card')||el.parentElement;while(node&&node.id!=='report'){let prev=node.previousElementSibling;while(prev){if(prev.classList?.contains('subhead'))return prev.querySelector('b')?.textContent.trim()||'';prev=prev.previousElementSibling}node=node.parentElement}return el.getAttribute('data-panel-id')||''}
+function showChartSelection(el,e){const root=document.getElementById('report'),tip=document.getElementById('chartTip'),panelId=el.getAttribute('data-panel-id'),panel=panelId?document.getElementById(panelId):null;resetChartSelections(root);const seriesKey=el.getAttribute('data-series-key')||'',isYear=/^20\d{2}년$/.test(seriesKey),analysisKey=chartAnalysisKey(el),scopeMarks=[...root.querySelectorAll('[data-series-key]')].filter(x=>chartAnalysisKey(x)===analysisKey&&x.getAttribute('data-series-key')),scopeSeries=new Set(scopeMarks.map(x=>x.getAttribute('data-series-key'))),linkSeries=!!seriesKey&&scopeSeries.size>1;if(linkSeries){scopeMarks.forEach(x=>x.classList.add(x.getAttribute('data-series-key')===seriesKey?'series-highlight':'series-muted'))}el.classList.add('selected-mark');el.setAttribute('aria-pressed','true');if(panel){const title=panel.querySelector('.selection-title'),detail=panel.querySelector('.selection-detail');panel.classList.add('active');if(title)title.textContent=el.getAttribute('data-tip-title')||'';if(detail)detail.textContent=(el.getAttribute('data-tip-detail')||'')+(linkSeries?' · 같은 분석 번호의 '+seriesKey+' 전체 항목 강조':'');panel.dataset.selected='1'}if(tip){tip.textContent=`${el.getAttribute('data-tip-title')||''}
+${el.getAttribute('data-tip-detail')||''}`;tip.style.display='block';const x=e&&Number.isFinite(e.clientX)?e.clientX:innerWidth/2,y=e&&Number.isFinite(e.clientY)?e.clientY:innerHeight/2;requestAnimationFrame(()=>{tip.style.left=Math.max(8,Math.min(x+14,innerWidth-tip.offsetWidth-12))+'px';tip.style.top=Math.max(8,Math.min(y+14,innerHeight-tip.offsetHeight-12))+'px'})}return !!panel}
+function bindChartTips(){const root=document.getElementById('report');if(!root||root.dataset.chartClicksBound==='1')return;root.dataset.chartClicksBound='1';root.addEventListener('click',e=>{const el=findDataMark(e.target,root);if(el){e.preventDefault();e.stopPropagation();showChartSelection(el,e);return}resetChartSelections(root)});root.addEventListener('keydown',e=>{const el=findDataMark(e.target,root);if(el&&(e.key==='Enter'||e.key===' ')){e.preventDefault();e.stopPropagation();showChartSelection(el,e);return}if(e.key==='Escape')resetChartSelections(root)});root.addEventListener('scroll',()=>{const tip=document.getElementById('chartTip');if(tip)tip.style.display='none'},{passive:true});if(document.documentElement.dataset.chartOutsideBound!=='1'){document.documentElement.dataset.chartOutsideBound='1';document.addEventListener('click',e=>{const current=document.getElementById('report');if(current&&!current.contains(e.target))resetChartSelections(current)})}}
+function buildFestivalTabs(){const tabs=document.getElementById('festivalTabs');tabs.innerHTML=Object.values(DATA.festivals).map(d=>`<button type="button" data-festival="${d.id}" class="${state.festival===d.id?'active':''}" aria-selected="${state.festival===d.id}">${esc(d.name)}</button>`).join('');tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(state.festival===b.dataset.festival)return;state.festival=b.dataset.festival;state.year='all';populateYears();render()})}
+let yearSelect;
+function populateYears(){const d=DATA.festivals[state.festival];yearSelect.innerHTML=`<option value="all">전체 연도 비교</option>`+(d.years.includes(2025)&&d.years.includes(2026)?`<option value="compare2526">2025년 대 2026년</option>`:'')+d.years.map(y=>`<option value="${y}">${y}년까지 누적 비교</option>`).join('');if(![...yearSelect.options].some(o=>o.value===String(state.year)))state.year='all';yearSelect.value=state.year}
+function enableDragScroll(el){let down=false,startY=0,startTop=0;el.addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||e.target.closest('button,select,a,input,[data-tip-title],.chart,.chart-selection'))return;down=true;startY=e.clientY;startTop=el.scrollTop;el.classList.add('dragging');el.setPointerCapture(e.pointerId)});el.addEventListener('pointermove',e=>{if(down)el.scrollTop=startTop-(e.clientY-startY)});['pointerup','pointercancel','lostpointercapture'].forEach(n=>el.addEventListener(n,()=>{down=false;el.classList.remove('dragging')}))}
+
+/* ===== v23: local Excel upload and festival manager ===== */
+const SOURCE_DB={};;
+const FESTIVAL_STORE_KEY='festival-report-v50-uploadfix';
+const BUILTIN_FESTIVALS=JSON.parse(JSON.stringify(DATA.festivals));
+const BUILTIN_ORDER=Object.keys(BUILTIN_FESTIVALS);
+let festivalOrder=Object.keys(DATA.festivals);
+let memoryFestivalStore=null;
+function storageRead(){try{return window.localStorage?localStorage.getItem(FESTIVAL_STORE_KEY):null}catch(e){return null}}
+function storageWrite(value){memoryFestivalStore=value;try{if(window.localStorage)localStorage.setItem(FESTIVAL_STORE_KEY,value)}catch(e){/* SharePoint sandbox: in-memory state remains active */}}
+function storageRemove(){memoryFestivalStore=null;try{if(window.localStorage)localStorage.removeItem(FESTIVAL_STORE_KEY)}catch(e){}}
+function loadFestivalStore(){try{const raw=storageRead()||memoryFestivalStore,z=JSON.parse(raw||'null');if(z&&z.festivals){if(z.fullSnapshot){Object.keys(DATA.festivals).forEach(k=>delete DATA.festivals[k])}Object.assign(DATA.festivals,z.festivals);festivalOrder=(z.order||Object.keys(DATA.festivals)).filter(k=>DATA.festivals[k]);if(!z.fullSnapshot)Object.keys(DATA.festivals).forEach(k=>{if(!festivalOrder.includes(k))festivalOrder.push(k)})}}catch(e){console.warn(e)}}
+function saveFestivalStore(){const all={};festivalOrder.forEach(k=>{if(DATA.festivals[k])all[k]=DATA.festivals[k]});storageWrite(JSON.stringify({order:festivalOrder,festivals:all,fullSnapshot:true}))}
+function xmlText(x){return new DOMParser().parseFromString(x,'application/xml')}
+async function unzipXlsx(buf){const b=new Uint8Array(buf),dv=new DataView(buf);let e=-1;for(let i=b.length-22;i>=Math.max(0,b.length-66000);i--){if(dv.getUint32(i,true)===0x06054b50){e=i;break}}if(e<0)throw Error('Excel ZIP 구조를 읽을 수 없습니다.');const n=dv.getUint16(e+10,true),off=dv.getUint32(e+16,true),out={};let p=off;for(let i=0;i<n;i++){if(dv.getUint32(p,true)!==0x02014b50)throw Error('Excel 파일 목록이 손상되었습니다.');const method=dv.getUint16(p+10,true),cs=dv.getUint32(p+20,true),us=dv.getUint32(p+24,true),nl=dv.getUint16(p+28,true),el=dv.getUint16(p+30,true),cl=dv.getUint16(p+32,true),lo=dv.getUint32(p+42,true),name=new TextDecoder().decode(b.slice(p+46,p+46+nl));const lnl=dv.getUint16(lo+26,true),lel=dv.getUint16(lo+28,true),start=lo+30+lnl+lel,raw=b.slice(start,start+cs);let data;if(method===0)data=raw;else if(method===8){if(!('DecompressionStream'in window))throw Error('이 브라우저는 Excel 압축 해제를 지원하지 않습니다. Edge 또는 Chrome 최신 버전을 사용하세요.');data=new Uint8Array(await new Response(new Blob([raw]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer())}else throw Error('지원하지 않는 Excel 압축 방식입니다.');out[name]=new TextDecoder().decode(data);p+=46+nl+el+cl}return out}
+function colIndex(ref){let n=0;for(const c of (ref.match(/[A-Z]+/)||['A'])[0])n=n*26+c.charCodeAt(0)-64;return n-1}
+function parseSheet(xml,shared){const d=xmlText(xml),rows=[];d.querySelectorAll('sheetData row').forEach(r=>{const a=[];r.querySelectorAll('c').forEach(c=>{const i=colIndex(c.getAttribute('r')||'A1'),t=c.getAttribute('t'),v=c.querySelector('v')?.textContent??'',inline=c.querySelector('is t')?.textContent;let x=t==='s'?shared[+v]:(t==='inlineStr'?inline:v);if(t!=='s'&&t!=='inlineStr'&&x!==''&&!isNaN(x))x=Number(x);a[i]=x});rows.push(a)});return rows}
+async function readWorkbookNative(file){const z=await unzipXlsx(await file.arrayBuffer()),shared=[];if(z['xl/sharedStrings.xml'])xmlText(z['xl/sharedStrings.xml']).querySelectorAll('si').forEach(si=>shared.push([...si.querySelectorAll('t')].map(x=>x.textContent).join('')));const wb=xmlText(z['xl/workbook.xml']),rels=xmlText(z['xl/_rels/workbook.xml.rels']),rm={};rels.querySelectorAll('Relationship').forEach(x=>rm[x.getAttribute('Id')]=x.getAttribute('Target'));const sheets={};wb.querySelectorAll('sheet').forEach(sh=>{const name=sh.getAttribute('name'),rid=sh.getAttribute('r:id'),target=rm[rid]||'',path=target.startsWith('/')?target.slice(1):'xl/'+target.replace(/^\.\//,'');if(z[path])sheets[name]=parseSheet(z[path],shared)});return sheets}
+
+function parseSpreadsheetML(text){const doc=new DOMParser().parseFromString(text,'application/xml');if(doc.querySelector('parsererror'))throw Error('Excel XML 형식을 해석할 수 없습니다.');const out={};const sheets=[...doc.getElementsByTagNameNS('urn:schemas-microsoft-com:office:spreadsheet','Worksheet')];for(const ws of sheets){const name=ws.getAttributeNS('urn:schemas-microsoft-com:office:spreadsheet','Name')||ws.getAttribute('ss:Name')||'Sheet';const rows=[];for(const r of ws.getElementsByTagNameNS('urn:schemas-microsoft-com:office:spreadsheet','Row')){const vals=[];let pos=0;for(const c of r.getElementsByTagNameNS('urn:schemas-microsoft-com:office:spreadsheet','Cell')){const ix=c.getAttributeNS('urn:schemas-microsoft-com:office:spreadsheet','Index')||c.getAttribute('ss:Index');if(ix)pos=Math.max(0,Number(ix)-1);while(vals.length<pos)vals.push('');const d=c.getElementsByTagNameNS('urn:schemas-microsoft-com:office:spreadsheet','Data')[0];let v=d?.textContent??'';const typ=d?.getAttributeNS('urn:schemas-microsoft-com:office:spreadsheet','Type')||d?.getAttribute('ss:Type')||'';if(typ==='Number'&&v!==''&&!isNaN(v))v=Number(v);vals[pos++]=v}while(vals.length&&vals.at(-1)==='')vals.pop();if(vals.some(v=>String(v).trim()!==''))rows.push(vals)}out[name]=rows}if(!Object.keys(out).length)throw Error('Excel XML에서 Worksheet를 찾지 못했습니다.');return out}
+function excelSignature(u){return [...u.slice(0,8)].map(x=>x.toString(16).padStart(2,'0')).join(' ')}
+async function readWorkbook(file){const buf=await file.arrayBuffer(),u=new Uint8Array(buf),sig=excelSignature(u),ext=(file.name.split('.').pop()||'').toLowerCase();let text='';if(sig.startsWith('ef bb bf 3c')||sig.startsWith('3c 3f 78 6d')||sig.startsWith('3c 57 6f 72')){text=new TextDecoder('utf-8').decode(u).replace(/^\uFEFF/,'');return parseSpreadsheetML(text)}if(sig.startsWith('50 4b'))return readWorkbookNative(new File([buf],file.name,{type:file.type}));if(sig.startsWith('d0 cf 11 e0'))throw Error(`${ext==='xls'?'구형 XLS':'OLE 기반 Excel'} 파일입니다. 이 단일 HTML은 서버 없이 실행되므로 바이너리 XLS/XLSB 또는 암호화 파일을 직접 해석할 수 없습니다. Excel에서 'Excel 통합 문서(.xlsx)' 또는 'XML 스프레드시트 2003(.xml/.xls)'로 저장한 뒤 업로드해 주세요.`);throw Error(`지원되는 Excel로 인식되지 않습니다. 파일 시작값: ${sig||'없음'}. 지원: .xlsx/.xlsm(OOXML ZIP), SpreadsheetML .xls/.xml. 암호화 XLS/XLSB는 브라우저 단독 해석이 제한됩니다.`)}
+const norm=x=>String(x??'').trim().replace(/[\s_·*()\[\]\/\\-]/g,'').toLowerCase();
+function tabular(rows){rows=Array.isArray(rows)?rows.filter(Array.isArray):[];let hi=0,best=0;for(let i=0;i<Math.min(12,rows.length);i++){const score=(rows[i]||[]).filter(x=>String(x??'').trim()).length;if(score>best){best=score;hi=i}}const raw=(rows[hi]||[]),heads=raw.map((x,i)=>String(x??'').trim()||`열${i+1}`);const data=rows.slice(hi+1).filter(r=>Array.isArray(r)&&(r||[]).some(x=>String(x??'').trim())).map(r=>{const pairs=[];heads.forEach((h,i)=>{if(h)pairs.push([h,(r||[])[i]??''])});return Object.fromEntries(pairs)});return {heads,data}}
+function pick(row,names){for(const k of Object.keys(row)){if(names.some(n=>norm(k).includes(norm(n))))return row[k]}return undefined}
+function toDate(v){if(v instanceof Date)return v;if(typeof v==='number'){const d=new Date(Date.UTC(1899,11,30)+v*86400000);return d.toISOString().slice(0,10)}const s=String(v??'').trim().replace(/\./g,'-').replace(/\//g,'-');const m=s.match(/(20\d{2})-(\d{1,2})-(\d{1,2})/);return m?`${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`:''}
+function num(v){const n=Number(String(v??0).replace(/,/g,''));return Number.isFinite(n)?n:0}
+function agg(rows,keyFn,valFn){const o={};rows.forEach(r=>{const k=keyFn(r);if(k)o[k]=(o[k]||0)+num(valFn(r))});return o}
+function arrShare(o){const t=sum(Object.values(o));return Object.entries(o).map(([label,value])=>({label,value,share:share(value,t)})).sort((a,b)=>b.value-a.value)}
+function ageLabel(v){const s=String(v??'');if(/미만|대|이상/.test(s))return s;const n=Number(s.match(/\d+/)?.[0]);if(!Number.isFinite(n))return s||'미상';if(n<20)return'20세 미만';if(n>=70)return'70세 이상';return Math.floor(n/10)*10+'대'}
+function genderCode(v){const s=String(v??'').toUpperCase();return /여|F/.test(s)?'F':(/남|M/.test(s)?'M':'')}
+function emptyFestival(id,name,province,district,file){return {id,name,hostProvince:province,hostDistrict:district,years:[],sourceFile:file,countryDetailAvailable:false,dataWarnings:[],annualVisits:{},foreignAnnual:{},foreignCategories:{},demographics:{},dailyDemographics:{},householdAnnual:{},householdWeekpart:{},residenceAnnual:{},lodgingAnnual:{},flowAnnual:{},dailyVisits:{},dateRanges:{},dailyOrdinal:{},weekdayVisits:{},residenceDistrictAnnual:{},flowWeekpart:{},lodgingResidenceAnnual:{},residenceRuleAnnual:{},residenceDistrictRuleAnnual:{},lodgingResidenceRuleAnnual:{},lodgingRuleAnnual:{},householdOriginalAnnual:{},householdOriginalWeekpart:{},locationRuleV12:{hostProvince:province,hostDistrict:district,administrativeType:/특별시|광역시|세종/.test(province)?'도시단위':'도단위',residenceMode:/특별시|광역시|세종/.test(province)?'시도 전체 제외':'개최 시군구만 제외',residenceAudit:{},lodgingMode:/특별시|광역시|세종/.test(province)?'시도 전체 제외':'시군구 자료 부재로 제외 미적용',lodgingDistrictAvailable:false,lodgingAudit:{},criteriaConsistent:true},_uploaded:true}}
+function findSheet(sheets,name){const k=Object.keys(sheets).find(x=>norm(x)===norm(name)||norm(x).includes(norm(name)));return k?sheets[k]:null}
+function metaFrom(rows,file){const flat=rows.flat().map(x=>String(x??'').trim());const valueAfter=label=>{const i=flat.findIndex(x=>norm(x).includes(norm(label)));return i>=0?flat.slice(i+1,i+5).find(x=>x&&norm(x)!==norm(label)):''};return {name:festivalNameFromReferenceRows(rows,valueAfter('축제명')||file.name.replace(/\.(xlsx|xls|xlsm|xlsb)$/i,'')),province:valueAfter('개최시도')||valueAfter('시도')||'',district:valueAfter('개최시군구')||valueAfter('시군구')||''}}
+
+function detectCsvDelimiter(line){const c=[',','\t',';','|'].map(d=>[d,(line.match(new RegExp('\\'+d,'g'))||[]).length]).sort((a,b)=>b[1]-a[1]);return c[0][1]?c[0][0]:','}
+function parseCsvText(text){text=String(text||'').replace(/^\uFEFF/,'');const first=(text.split(/\r?\n/,1)[0]||''),delim=detectCsvDelimiter(first),rows=[];let row=[],cell='',quote=false;for(let i=0;i<text.length;i++){const ch=text[i],nx=text[i+1];if(ch==='"'){if(quote&&nx==='"'){cell+='"';i++}else quote=!quote}else if(ch===delim&&!quote){row.push(cell);cell=''}else if((ch==='\n'||ch==='\r')&&!quote){if(ch==='\r'&&nx==='\n')i++;row.push(cell);cell='';if(row.some(x=>String(x).trim()))rows.push(row);row=[]}else cell+=ch}row.push(cell);if(row.some(x=>String(x).trim()))rows.push(row);return rows}
+async function readCsvFile(file){const buf=await file.arrayBuffer(),u=new Uint8Array(buf);let text='';try{text=new TextDecoder('utf-8',{fatal:true}).decode(u)}catch(e){try{text=new TextDecoder('euc-kr').decode(u)}catch(e2){text=new TextDecoder().decode(u)}}return parseCsvText(text)}
+const CSV_TYPES=[['기준정보','기준정보'],['일자별데이터','DB1'],['가구세그데이터','DB2'],['거주지데이터','DB3'],['유입체류데이터','DB4'],['숙박이용데이터','DB5']];
+function csvTypeFromName(name){const n=norm(name.replace(/\.csv$/i,''));for(const [label,sheet] of CSV_TYPES){if(n.includes(norm(label)))return {label,sheet}}return null}
+async function uploadFestivalCsv(files){const st=document.getElementById('uploadStatus');st.className='upload-status';st.textContent='CSV 6개 파일명과 데이터를 검사하고 있습니다...';try{const list=[...files];if(list.length!==6)throw Error(`CSV는 정확히 6개를 한 번에 선택해야 합니다. 현재 ${list.length}개가 선택되었습니다.`);const sheets={},seen={},bad=[];for(const f of list){const t=csvTypeFromName(f.name);if(!t){bad.push(f.name);continue}if(seen[t.sheet])throw Error(`${t.label} 파일이 2개 이상 선택되었습니다: ${seen[t.sheet]}, ${f.name}`);seen[t.sheet]=f.name;sheets[t.sheet]=await readCsvFile(f)}if(bad.length)throw Error(`파일명으로 데이터 종류를 판단할 수 없습니다: ${bad.join(', ')}`);const missing=CSV_TYPES.filter(([,sheet])=>!sheets[sheet]).map(([label])=>label);if(missing.length)throw Error(`필수 CSV가 없습니다: ${missing.join(', ')}`);for(const [label,sheet] of CSV_TYPES){if(!sheets[sheet]||sheets[sheet].length<1)throw Error(`${label} 파일이 비어 있습니다.`)}const pseudo={name:`${seen.DB1||'CSV 6개'} 외 5개`},d=buildFestivalFromWorkbook(sheets,pseudo);d.sourceFile=`CSV 6개 · ${list.map(f=>f.name).join(' / ')}`;d._rawSheets=sheets;d._uploaded=true;DATA.festivals[d.id]=d;festivalOrder.push(d.id);state.festival=d.id;state.year='all';commitFestivalManagement(d.id);st.className='upload-status ok';st.textContent=`${d.name} 추가 완료 · CSV 6개 확인 · 분석 연도 ${d.years.join(', ')}`;}catch(e){console.error(e);st.className='upload-status error';st.textContent='추가 실패: '+e.message}}
+
+function buildFestivalFromWorkbook(sheets,file){sheets=sheets&&typeof sheets==='object'?sheets:{};Object.keys(sheets).forEach(k=>{if(!Array.isArray(sheets[k]))sheets[k]=[];sheets[k]=sheets[k].filter(Array.isArray).map(r=>r.map(v=>v??''))});const info=findSheet(sheets,'기준정보');if(!info)throw Error('기준정보 시트가 없습니다.');const db1=findSheet(sheets,'DB1');if(!db1)throw Error('DB1 시트가 없습니다. 전체 방문자 분석을 생성할 수 없습니다.');const m=metaFrom(info,file);if(!m.province)throw Error('기준정보에서 개최시도를 찾지 못했습니다.');const id='upload_'+Date.now(),d=emptyFestival(id,m.name,m.province,m.district,file.name),t1=tabular(db1),rows=t1.data;const dateKey=r=>toDate(pick(r,['방문일자','일자','날짜'])),valueKey=r=>pick(r,['방문자수','방문인구수','인구수','수']),yearKey=r=>Number(dateKey(r).slice(0,4)||pick(r,['연도']));if(!t1.heads.some(h=>/방문.*(수|인구)|인구수/.test(h)))throw Error('DB1에서 방문자수 열을 찾지 못했습니다.');const years=[...new Set(rows.map(yearKey).filter(Boolean))].sort();if(!years.length)throw Error('DB1에서 분석 연도를 찾지 못했습니다.');d.years=years;const wd=['일','월','화','수','목','금','토'];for(const y of years){const yr=rows.filter(r=>yearKey(r)===y),dates=agg(yr,dateKey,valueKey);d.annualVisits[y]=sum(Object.values(dates));d.dailyVisits[y]=Object.entries(dates).sort().map(([date,value])=>({date,value}));d.dailyOrdinal[y]=d.dailyVisits[y].map((x,i)=>({day:'D'+(i+1),date:x.date,weekday:wd[new Date(x.date+'T00:00:00').getDay()],value:x.value}));d.weekdayVisits[y]=WEEK.map(label=>({label,value:sum(d.dailyOrdinal[y].filter(x=>x.weekday===label).map(x=>x.value))}));d.dateRanges[y]={start:d.dailyVisits[y][0]?.date||'',end:d.dailyVisits[y].at(-1)?.date||'',days:d.dailyVisits[y].length};const foreign=yr.filter(r=>/외국/.test(String(pick(r,['국적','내외국인','국적구분','외국인구분','구분'])??'')));d.foreignAnnual[y]=sum(foreign.map(valueKey));d.foreignCategories[y]=arrShare(agg(foreign,r=>String(pick(r,['체류유형','외국인구분','구분'])||'외국인'),valueKey));const domestic=yr.filter(r=>!/외국/.test(String(pick(r,['내외국인','국적구분','외국인구분'])??''))),go=agg(domestic,r=>genderCode(pick(r,['성별','sex'])),valueKey),ao=agg(domestic,r=>ageLabel(pick(r,['연령대','연령','age'])),valueKey);const ga={F:{},M:{}};domestic.forEach(r=>{const g=genderCode(pick(r,['성별','sex'])),a=ageLabel(pick(r,['연령대','연령','age']));if(g&&a)ga[g][a]=(ga[g][a]||0)+num(valueKey(r))});d.demographics[y]={gender:arrShare(go),age:arrShare(ao),genderAge:{F:arrShare(ga.F),M:arrShare(ga.M)}};d.dailyDemographics[y]={};for(const dt of Object.keys(dates)){const rs=domestic.filter(r=>dateKey(r)===dt),g=agg(rs,r=>genderCode(pick(r,['성별','sex'])),valueKey),a=agg(rs,r=>ageLabel(pick(r,['연령대','연령','age'])),valueKey);d.dailyDemographics[y][dt]={gender:arrShare(g),age:arrShare(a)}}}
+const optional=[['DB2','household'],['DB3','residence'],['DB4','flow'],['DB5','lodging']];optional.forEach(([sn])=>{if(!findSheet(sheets,sn))d.dataWarnings.push(`${sn} 시트가 없어 해당 분석은 데이터 없음으로 표시됩니다.`)});
+const db2=findSheet(sheets,'DB2');if(db2){const rr=tabular(db2).data,dk=r=>toDate(pick(r,['방문일자','일자','날짜'])),vk=r=>pick(r,['가구수','방문가구수','수']),lk=r=>String(pick(r,['가구유형개선','가구유형','세그'])||'미상');for(const y of years){const ar=rr.filter(r=>Number(dk(r).slice(0,4))===y),orig=agg(ar,lk,vk);d.householdOriginalAnnual[y]=arrShare(orig);d.householdAnnual[y]=arrShare(agg(ar,r=>householdDetailGroup(lk(r)),vk));d.householdOriginalWeekpart[y]={};d.householdWeekpart[y]={};for(const w of ['주중','주말']){const z=ar.filter(r=>([0,6].includes(new Date(dk(r)+'T00:00:00').getDay())?'주말':'주중')===w);d.householdOriginalWeekpart[y][w]=arrShare(agg(z,lk,vk));d.householdWeekpart[y][w]=arrShare(agg(z,r=>householdDetailGroup(lk(r)),vk))}}}
+const db3=findSheet(sheets,'DB3');if(db3){const rr=tabular(db3).data,yk=r=>Number(toDate(pick(r,['방문일자','일자','날짜'])).slice(0,4)||pick(r,['연도'])),vk=r=>pick(r,['방문인구수','방문자수','인구수','수']),pk=r=>String(pick(r,['거주시도','시도'])||'미상'),sk=r=>String(pick(r,['거주시군구','시군구'])||'미상');for(const y of years){const ar=rr.filter(r=>yk(r)===y),prov=agg(ar,pk,vk),dist=agg(ar,r=>pk(r)+' '+sk(r),vk);d.residenceAnnual[y]=arrShare(prov);d.residenceDistrictAnnual[y]=Object.entries(dist).map(([label,value])=>({province:label.split(' ')[0],district:label.split(' ').slice(1).join(' '),label,value}));const city=/특별시|광역시|세종/.test(d.hostProvince),filtered=city?Object.fromEntries(Object.entries(prov).filter(([k])=>k!==d.hostProvince)):agg(ar.filter(r=>sk(r)!==d.hostDistrict),pk,vk);d.residenceRuleAnnual[y]=arrShare(filtered);const fdist=Object.fromEntries(Object.entries(dist).filter(([k])=>city?!k.startsWith(d.hostProvince+' '):k!==d.hostProvince+' '+d.hostDistrict));d.residenceDistrictRuleAnnual[y]=arrShare(fdist);d.locationRuleV12.residenceAudit[y]={sourceTotal:sum(Object.values(prov)),excludedValue:sum(Object.values(prov))-sum(Object.values(filtered)),excludedRows:0,remainingTotal:sum(Object.values(filtered)),remainingForbiddenHits:0}}}
+const db4=findSheet(sheets,'DB4');if(db4){const rr=tabular(db4).data,dk=r=>toDate(pick(r,['방문일자','일자','날짜'])),hk=r=>Number(pick(r,['시간대','시간','시'])),inf=r=>pick(r,['유입인구','유입인구수']),stay=r=>pick(r,['체류인구','체류인구수']),avg=r=>pick(r,['평균체류시간','체류시간']);for(const y of years){const ar=rr.filter(r=>Number(dk(r).slice(0,4))===y),hours=[...new Set(ar.map(hk).filter(Number.isFinite))].sort((a,b)=>a-b);d.flowAnnual[y]=hours.map(hour=>{const z=ar.filter(r=>hk(r)===hour),iv=sum(z.map(inf)),sv=sum(z.map(stay));return {hour,inflow:iv,stay:sv,avgStay:sum(z.map(r=>num(avg(r))*num(inf(r))))/(iv||1)}});d.flowWeekpart[y]={};for(const w of ['주중','주말']){const z=ar.filter(r=>([0,6].includes(new Date(dk(r)+'T00:00:00').getDay())?'주말':'주중')===w);d.flowWeekpart[y][w]=hours.map(hour=>{const q=z.filter(r=>hk(r)===hour),iv=sum(q.map(inf)),sv=sum(q.map(stay));return {hour,inflow:iv,stay:sv,avgStay:sum(q.map(r=>num(avg(r))*num(inf(r))))/(iv||1)}})}}}
+const db5=findSheet(sheets,'DB5');if(db5){const rr=tabular(db5).data,dk=r=>toDate(pick(r,['해당일자','방문일자','일자','날짜'])),vk=r=>pick(r,['숙박자수','숙박인구수','인구수','수']),pk=r=>String(pick(r,['거주시도','시도'])||'미상');for(const y of years){const ar=rr.filter(r=>Number(dk(r).slice(0,4))===y),city=/특별시|광역시|세종/.test(d.hostProvince),fa=city?ar.filter(r=>pk(r)!==d.hostProvince):ar,total=sum(fa.map(vk)),gender=agg(fa,r=>genderCode(pick(r,['성별','sex'])),vk),age=agg(fa,r=>ageLabel(pick(r,['연령대','연령','age'])),vk),nights=agg(fa,r=>{const x=pick(r,['숙박일수','박수']);return String(x).includes('박')?String(x):num(x)+'박'},vk),res=agg(fa,pk,vk);d.lodgingAnnual[y]={total:sum(ar.map(vk)),gender:arrShare(agg(ar,r=>genderCode(pick(r,['성별','sex'])),vk)),age:arrShare(agg(ar,r=>ageLabel(pick(r,['연령대','연령','age'])),vk)),nights:arrShare(agg(ar,r=>String(pick(r,['숙박일수','박수'])||'미상'),vk))};d.lodgingRuleAnnual[y]={total,gender:arrShare(gender),age:arrShare(age),nights:arrShare(nights)};d.lodgingResidenceAnnual[y]=arrShare(agg(ar,pk,vk));d.lodgingResidenceRuleAnnual[y]=arrShare(res);d.locationRuleV12.lodgingAudit[y]={sourceTotal:sum(ar.map(vk)),excludedValue:sum(ar.map(vk))-total,excludedRows:0,remainingTotal:total,remainingForbiddenHits:0}}}
+return d}
+
+const BUILTIN_SOURCE_URLS={
+ ace:'https://lgupluscorp.sharepoint.com/sites/o365m_000565042/_layouts/15/Doc.aspx?sourcedoc=%7B5D9AE14F-37F8-46F6-AD06-303CB003AB40%7D&file=%EC%97%90%EC%9D%B4%EC%8A%A4%ED%8E%98%EC%96%B4_2026_html.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1',
+ jangheung:'https://lgupluscorp.sharepoint.com/sites/o365m_000565042/_layouts/15/Doc.aspx?sourcedoc=%7B71576C72-C906-4C1C-9F8F-9B27F1A6F4EA%7D&file=%EC%9E%A5%ED%9D%A5%EB%AC%BC%EC%B6%95%EC%A0%9C_2026_html.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1',
+ chungjang:'https://lgupluscorp.sharepoint.com/sites/o365m_000565042/_layouts/15/Doc.aspx?sourcedoc=%7B0C18B599-0235-45E0-BC1C-FCDFA47EAE6D%7D&file=%EC%B6%A9%EC%9E%A5%EC%B6%95%EC%A0%9C_2026_html.xlsx&action=default&mobileredirect=true&DefaultItemOpen=1'
+};
+function xmlEscape(v){return String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function safeFileName(v){return String(v||'축제').replace(/[\\/:*?"<>|]/g,'_')}
+function rowsToXmlSheet(name,rows){const body=(rows||[]).map(r=>'<Row>'+r.map(v=>{const isNum=typeof v==='number'&&Number.isFinite(v);return `<Cell><Data ss:Type="${isNum?'Number':'String'}">${xmlEscape(v)}</Data></Cell>`}).join('')+'</Row>').join('');return `<Worksheet ss:Name="${xmlEscape(name.slice(0,31))}"><Table>${body}</Table></Worksheet>`}
+const sourceBlobUrls={};
+function uploadedWorkbookBlobUrl(d){if(sourceBlobUrls[d.id])URL.revokeObjectURL(sourceBlobUrls[d.id]);if(!d._rawSheets)return'';const sheets=[['기준정보','기준정보'],['일자별데이터','DB1'],['가구세그데이터','DB2'],['거주지데이터','DB3'],['유입체류데이터','DB4'],['숙박이용데이터','DB5']];const xml='<?xml version="1.0"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'+sheets.map(([n,k])=>rowsToXmlSheet(n,d._rawSheets[k]||[])).join('')+'</Workbook>';sourceBlobUrls[d.id]=URL.createObjectURL(new Blob(['\ufeff'+xml],{type:'application/vnd.ms-excel;charset=utf-8'}));return sourceBlobUrls[d.id]}
+function downloadUploadedWorkbook(d){if(!d._rawSheets){alert('이 축제는 업로드 원본 행을 보관한 버전이 아닙니다. 원본 CSV 6개를 다시 업로드해 주세요.');return}const sheets=[['기준정보','기준정보'],['일자별데이터','DB1'],['가구세그데이터','DB2'],['거주지데이터','DB3'],['유입체류데이터','DB4'],['숙박이용데이터','DB5']];const xml='<?xml version="1.0"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'+sheets.map(([n,k])=>rowsToXmlSheet(n,d._rawSheets[k]||[])).join('')+'</Workbook>';const blob=new Blob(['\ufeff'+xml],{type:'application/vnd.ms-excel;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=safeFileName(d.name)+'_원본데이터.xls';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function downloadFestivalSource(id){const d=DATA.festivals[id];if(!d)return;if(BUILTIN_SOURCE_URLS[id]){location.href=BUILTIN_SOURCE_URLS[id];return}downloadUploadedWorkbook(d)}
+
+
+function utf8ToBase64(text){const bytes=new TextEncoder().encode(text),parts=[],n=16384;for(let i=0;i<bytes.length;i+=n)parts.push(String.fromCharCode.apply(null,bytes.subarray(i,i+n)));return btoa(parts.join(''))}
+function sourceDbDataFile(id){const rec=SOURCE_DB[id]||(DATA.festivals[id]?{name:DATA.festivals[id].name,sourceFile:DATA.festivals[id].sourceFile||'data.xlsx',sheets:DATA.festivals[id]._rawSheets}:null);if(!rec||!rec.sheets)return null;const xesc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');const ws=(name,rows)=>`<Worksheet ss:Name="${xesc(String(name).slice(0,31))}"><Table>${(rows||[]).map(row=>'<Row>'+row.map(v=>{const n=typeof v==='number'&&Number.isFinite(v);return `<Cell><Data ss:Type="${n?'Number':'String'}">${xesc(v)}</Data></Cell>`}).join('')+'</Row>').join('')}</Table></Worksheet>`;const xml='<?xml version="1.0"?><?mso-application progid="Excel.Sheet"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">'+Object.entries(rec.sheets).map(([n,r])=>ws(n,r)).join('')+'</Workbook>';return {name:rec.sourceFile.replace(/\.xlsx$/i,'')+'.xls',url:'data:application/vnd.ms-excel;base64,'+utf8ToBase64('\ufeff'+xml)}}
+function openIsolatedDownload(id){const d=DATA.festivals[id];if(d&&d._dataUrl){const a=document.createElement('a');a.href=d._dataUrl;a.download=d.sourceFile||'festival.xlsx';document.body.appendChild(a);a.click();a.remove();return;}const rec=SOURCE_DB[id]||d,src=sourceDbDataFile(id);if(!rec||!src)return;let panel=document.getElementById('isolatedDownloadPanel');if(!panel){panel=document.createElement('div');panel.id='isolatedDownloadPanel';panel.className='isolated-download-panel';document.body.appendChild(panel)}panel.innerHTML=`<div class="isolated-download-card"><button type="button" class="isolated-close">×</button><h3>${esc(rec.name||DATA.festivals[id]?.name||'축제')} 원본 데이터</h3><p>아래 전용 다운로드 화면에서 저장 버튼을 눌러주세요.</p><iframe class="isolated-frame" sandbox="allow-scripts allow-downloads"></iframe></div>`;panel.classList.add('open');panel.querySelector('.isolated-close').onclick=()=>panel.classList.remove('open');const fr=panel.querySelector('.isolated-frame'),safe=String(src.name).replace(/&/g,'&amp;').replace(/"/g,'&quot;');fr.srcdoc=`<!doctype html><meta charset="utf-8"><style>body{margin:0;padding:10px;font-family:Arial,sans-serif;background:#faf7f9}a{display:block;text-align:center;padding:14px;background:#b41561;color:white;border-radius:10px;text-decoration:none;font-weight:800}</style><a id="isolatedSave" href="${src.url}" download="${safe}">Excel 파일 저장</a>`}
+
+function festivalNameFromReferenceRows(rows,fallback){if(!Array.isArray(rows))return fallback;for(let r=0;r<Math.min(rows.length,30);r++){const row=rows[r]||[];for(let c=0;c<row.length;c++){if(String(row[c]??'').trim().replace(/\s/g,'')==='축제명'){for(let rr=r+1;rr<rows.length;rr++){const value=String((rows[rr]||[])[c]??'').trim();if(value)return value}return fallback}}}return fallback}
+function festivalReportTitle(d){const rows=dbSheet(d.id,'기준정보');return rows?festivalNameFromReferenceRows(rows,d.name):d.name}
+function updateReportHeading(d){const name=festivalReportTitle(d);const h=document.querySelector('.brand h1');if(h)h.textContent=name+' 분석 보고서';document.title=name+' 분석 보고서'}
+
+function dbSheet(id,needle){const d=DATA.festivals[id],sheets=(d&&d._rawSheets)?d._rawSheets:(SOURCE_DB&&SOURCE_DB[id]?SOURCE_DB[id].sheets:null);if(!sheets)return null;const k=Object.keys(sheets||{}).find(x=>String(x).replace(/\s/g,'').includes(String(needle).replace(/\s/g,'')));return k?sheets[k]:null}
+function dbObjects(rows){if(!rows||rows.length<2)return[];const h=rows[0].map(x=>String(x??'').trim());return rows.slice(1).filter(r=>r.some(v=>String(v??'').trim()!=='' )).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]])))}
+function dateOnly(v){if(typeof v==='number'&&v>30000&&v<70000){const d=new Date(Date.UTC(1899,11,30)+v*86400000);return d.toISOString().slice(0,10)}const s=String(v??'');const m=s.match(/(20\d{2})[-/.](\d{1,2})[-/.](\d{1,2})/);return m?`${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`:s.slice(0,10)}
+function sourceForeignSummary(d){const rows=dbObjects(dbSheet(d.id,'DB1')||dbSheet(d.id,'일자별데이터'));const out={annual:{},cats:{}};for(const r of rows){const nat=String(r['국적']??r['국적구분']??r['내외국인']??'').trim(),y=Number(r['연도']||dateOnly(r['방문일자']).slice(0,4)),v=Number(r['방문자수']??r['인구수']??0)||0;if(!y||!nat||nat==='내국인'||!nat.includes('외국인'))continue;out.annual[y]=(out.annual[y]||0)+v;(out.cats[y]||(out.cats[y]={}))[nat]=((out.cats[y]||{})[nat]||0)+v}return out}
+function applyForeignFromSource(d){const x=sourceForeignSummary(d);for(const y of Object.keys(x.annual)){d.foreignAnnual[y]=x.annual[y];const total=x.annual[y];d.foreignCategories[y]=Object.entries(x.cats[y]||{}).map(([label,value])=>({label,value,share:total?value/total*100:0})).sort((a,b)=>b.value-a.value)}return x}
+function referenceMeta(d){const rows=dbSheet(d.id,'기준정보');if(!rows||rows.length<2)return {years:[]};const h=rows[0].map(x=>String(x??'').trim()),ix=k=>h.indexOf(k),out=[];for(const r of rows.slice(1)){const y=Number(r[ix('연도')]);if(!y)continue;out.push({year:y,name:String(r[ix('축제명')]??d.name),start:dateOnly(r[ix('행사시작일자')]),end:dateOnly(r[ix('행사종료일자')]),province:String(r[ix('개최시도')]??d.hostProvince??''),district:String(r[ix('개최시군구')]??d.hostDistrict??'')})}return {years:out.sort((a,b)=>a.year-b.year)}}
+function coverMetaBlock(d){const m=referenceMeta(d),rows=m.years;if(!rows.length)return'';return `<div class="cover-meta"><div class="cover-meta-title">연도별 분석 기준</div><div class="cover-meta-table-wrap" style="background:transparent"><table class="cover-meta-table" style="background:transparent;color:#fff"><thead><tr><th>연도</th><th>분석기간</th><th>개최시도</th><th>개최시군구</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${x.year}년</td><td>${esc(x.start)} ~ ${esc(x.end)}</td><td>${esc(x.province)}</td><td>${esc(x.district)}</td></tr>`).join('')}</tbody></table></div></div>`}
+function orderedFestivals(){return festivalOrder.filter(k=>DATA.festivals[k]).map(k=>DATA.festivals[k])}
+function commitFestivalManagement(preferredId){
+  festivalOrder=festivalOrder.filter((k,i,a)=>DATA.festivals[k]&&a.indexOf(k)===i);
+  if(!festivalOrder.length){Object.keys(BUILTIN_FESTIVALS).forEach(k=>DATA.festivals[k]=JSON.parse(JSON.stringify(BUILTIN_FESTIVALS[k])));festivalOrder=[...BUILTIN_ORDER]}
+  if(preferredId&&DATA.festivals[preferredId]) state.festival=preferredId;
+  if(!DATA.festivals[state.festival]) state.festival=festivalOrder[0];
+  saveFestivalStore();
+  populateYears();
+  render();
+  renderManageList();
+}
+function openManager(){const pw=window.prompt('수정 기능을 사용하려면 비밀번호를 입력하세요.');if(pw===null)return;if(pw!=='gjto2027'){window.alert('비밀번호가 올바르지 않습니다.');return}renderManageList();const m=document.getElementById('festivalManager');m.hidden=false;m.classList.add('open');m.setAttribute('aria-hidden','false')}
+function closeManager(){const m=document.getElementById('festivalManager');m.classList.remove('open');m.hidden=true;m.setAttribute('aria-hidden','true')}
+function renderManageList(){const box=document.getElementById('festivalManageList');box.innerHTML=orderedFestivals().map((d,i)=>`<div class="festival-manage-row" data-id="${esc(d.id)}"><span class="drag-handle">${i+1}</span><div class="festival-meta"><b>${esc(d.name)}${d._uploaded?'<span class="source-badge">업로드</span>':''}</b><small>${esc(d.sourceFile||SOURCE_DB[d.id]?.sourceFile||'내부 DB')} · ${(d.years||[]).join(', ')}</small></div><div class="row-actions"><button type="button" ${i===0?'disabled':''} data-act="up">▲ 위로</button><button type="button" ${i===festivalOrder.length-1?'disabled':''} data-act="down">▼ 아래로</button><select class="position-select">${festivalOrder.map((_,n)=>`<option value="${n}" ${n===i?'selected':''}>${n+1}번째</option>`).join('')}</select><button type="button" data-act="source">원본 Excel 다운로드</button><button type="button" data-act="html" style="border-color:var(--pink);color:var(--pink);font-weight:800;">HTML 다운로드</button><button type="button" class="danger" data-act="delete">삭제</button></div></div>`).join('');box.querySelectorAll('.festival-manage-row').forEach(row=>{row.querySelector('[data-act="up"]').onclick=()=>moveFestivalBy(row.dataset.id,-1);row.querySelector('[data-act="down"]').onclick=()=>moveFestivalBy(row.dataset.id,1);row.querySelector('[data-act="source"]').onclick=()=>openIsolatedDownload(row.dataset.id);row.querySelector('[data-act="html"]').onclick=()=>downloadSingleFestivalHtml(row.dataset.id);row.querySelector('[data-act="delete"]').onclick=()=>deleteFestival(row.dataset.id);row.querySelector('.position-select').onchange=e=>moveFestivalTo(row.dataset.id,Number(e.target.value))})}
+function moveFestivalBy(id,delta){const from=festivalOrder.indexOf(id),to=from+delta;if(from<0||to<0||to>=festivalOrder.length)return;festivalOrder.splice(from,1);festivalOrder.splice(to,0,id);commitFestivalManagement(id)}
+function moveFestivalTo(id,to){const from=festivalOrder.indexOf(id);if(from<0||to<0||to>=festivalOrder.length||from===to)return;festivalOrder.splice(from,1);festivalOrder.splice(to,0,id);commitFestivalManagement(id)}
+function deleteFestival(id){
+ if(!DATA.festivals[id])return;
+ if(festivalOrder.length<=1){const st=document.getElementById('uploadStatus');st.className='upload-status error';st.textContent='축제는 최소 1개 이상 있어야 합니다.';return}
+ const name=DATA.festivals[id].name,idx=festivalOrder.indexOf(id);
+ delete DATA.festivals[id]; festivalOrder=festivalOrder.filter(k=>k!==id);
+ const next=festivalOrder[Math.min(idx,festivalOrder.length-1)]||festivalOrder[0];
+ commitFestivalManagement(next);
+ const st=document.getElementById('uploadStatus');st.className='upload-status ok';st.textContent=`${name}을(를) 보고서에서 삭제했습니다. 원본 Excel은 변경되지 않습니다. 잘못 삭제한 경우 '기본 구성 복원'을 누르세요.`;
+}
+function downloadCurrentHtml(){saveFestivalStore();const snapshot={order:festivalOrder,festivals:Object.fromEntries(festivalOrder.filter(k=>DATA.festivals[k]).map(k=>[k,DATA.festivals[k]])),fullSnapshot:true};const clone=document.documentElement.cloneNode(true);clone.querySelectorAll('#festivalSnapshot').forEach(x=>x.remove());const marker=document.createElement('script');marker.id='festivalSnapshot';marker.type='application/json';marker.textContent=JSON.stringify(snapshot);const body=clone.querySelector('body');body.insertBefore(marker,body.firstChild);const html='<!doctype html>\n'+clone.outerHTML;const blob=new Blob([html],{type:'text/html;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='축제_원천데이터_통합분석_비교보고서_v74_수정비밀번호형.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+function downloadSingleFestivalHtml(id){
+  const fest = DATA.festivals[id];
+  if(!fest) return;
+  const festCopy = JSON.parse(JSON.stringify(fest));
+  delete festCopy._dataUrl; // 단독 HTML 파일에서도 외부 경로 의존 없이 동작하도록 처리
+  const snapshot = {
+    order: [id],
+    festivals: { [id]: festCopy },
+    fullSnapshot: true,
+    singleFestivalMode: true
+  };
+  const clone = document.documentElement.cloneNode(true);
+  clone.querySelectorAll('#festivalSnapshot,#ghSyncPanel,#ghTokenModal,#isolatedDownloadPanel').forEach(x=>x.remove());
+  // 단독 축제 HTML에서는 상단 축제 선택 탭 바(#festivalTabs)와 수정/관리 UI를 제거해 해당 축제 전용 보고서로 제공
+  const tabsEl = clone.querySelector('#festivalTabs');
+  if(tabsEl) tabsEl.remove();
+  const manageBtn = clone.querySelector('#manageFestivalsBtn');
+  if(manageBtn) manageBtn.remove();
+  const managerModal = clone.querySelector('#festivalManager');
+  if(managerModal) managerModal.remove();
+  const reportEl = clone.querySelector('#report');
+  if(reportEl) reportEl.innerHTML = '';
+
+  const marker = document.createElement('script');
+  marker.id = 'festivalSnapshot';
+  marker.type = 'application/json';
+  marker.textContent = JSON.stringify(snapshot);
+  const body = clone.querySelector('body');
+  body.insertBefore(marker, body.firstChild);
+
+  const outHtml = '<!doctype html>\n' + clone.outerHTML;
+  const blob = new Blob([outHtml], {type:'text/html;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  const safeTitle = String(festivalReportTitle(fest) || fest.name || '축제').replace(/[\\/*?:"<>|]/g, '_').trim();
+  a.href = url;
+  a.download = `${safeTitle}_분석보고서.html`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1500);
+}
+async function uploadFestival(file){const st=document.getElementById('uploadStatus');st.className='upload-status';st.textContent='Excel 구조와 데이터를 분석하고 있습니다...';try{const sheets=await readWorkbook(file),d=buildFestivalFromWorkbook(sheets,file);d._rawSheets=sheets;d._uploaded=true;DATA.festivals[d.id]=d;festivalOrder.push(d.id);state.festival=d.id;state.year='all';commitFestivalManagement(d.id);st.className='upload-status ok';st.textContent=`${d.name} 추가 완료 · 분석 연도 ${d.years.join(', ')} · ${d.dataWarnings.length?d.dataWarnings.join(' / '):'필수 분석 데이터 확인'}`;}catch(e){console.error(e);st.className='upload-status error';st.textContent='추가 실패: '+e.message}}
+function initFestivalManager(){
+  const initialManager=document.getElementById('festivalManager');
+  if(initialManager){initialManager.hidden=true;initialManager.classList.remove('open')}
+  try{
+    const snap=document.getElementById('festivalSnapshot');
+    if(snap){
+      const z=JSON.parse(snap.textContent);
+      if(z&&z.festivals){
+        Object.keys(DATA.festivals).forEach(k=>delete DATA.festivals[k]);
+        Object.assign(DATA.festivals,z.festivals);
+        festivalOrder=z.order||Object.keys(DATA.festivals);
+        if(z.singleFestivalMode){
+          window.__SINGLE_FESTIVAL_MODE__ = true;
+          state.festival = festivalOrder[0];
+        }
+      }
+    } else {
+      loadFestivalStore();
+    }
+  }catch(e){console.warn(e);loadFestivalStore()}
+  const btnManage = document.getElementById('manageFestivalsBtn');
+  if(btnManage) btnManage.onclick=openManager;
+  const btnClose = document.getElementById('managerClose');
+  if(btnClose) btnClose.onclick=closeManager;
+  const btnDone = document.getElementById('managerDone');
+  if(btnDone) btnDone.onclick=closeManager;
+  const btnDl = document.getElementById('downloadHtmlBtn');
+  if(btnDl) btnDl.onclick=downloadCurrentHtml;
+  if(initialManager) initialManager.onclick=e=>{if(e.target.id==='festivalManager')closeManager()};
+  const modeSel=document.getElementById('uploadModeSelect');
+  if(modeSel){
+    modeSel.onchange=()=>{
+      const csv=modeSel.value==='csv';
+      document.getElementById('csvUploadBox').hidden=!csv;
+      document.getElementById('excelUploadBox').hidden=csv;
+      document.getElementById('uploadStatus').textContent=csv
+        ?'CSV 6개를 한 번에 선택하세요. 파일명에는 기준정보, 일자별데이터, 가구세그데이터, 거주지데이터, 유입체류데이터, 숙박이용데이터가 포함되어야 합니다.'
+        :'동일 포맷의 Excel 1개를 선택하세요. (기준정보, DB1~DB5 시트 포함)';
+    };
+  }
+  const exInput = document.getElementById('festivalExcelInput');
+  if(exInput) exInput.onchange=e=>{const f=e.target.files[0];if(f)uploadFestival(f);e.target.value=''};
+  const csvInput = document.getElementById('festivalCsvInput');
+  if(csvInput) csvInput.onchange=e=>{const fs=e.target.files;if(fs&&fs.length)uploadFestivalCsv(fs);e.target.value=''};
+  const btnReset = document.getElementById('managerReset');
+  if(btnReset) btnReset.onclick=e=>{const b=e.currentTarget;if(b.dataset.armed!=='1'){b.dataset.armed='1';b.textContent='한 번 더 누르면 기본 구성 복원';setTimeout(()=>{b.dataset.armed='0';b.textContent='기본 구성 복원'},3500);return}storageRemove();Object.keys(DATA.festivals).forEach(k=>delete DATA.festivals[k]);Object.keys(BUILTIN_FESTIVALS).forEach(k=>DATA.festivals[k]=JSON.parse(JSON.stringify(BUILTIN_FESTIVALS[k])));festivalOrder=[...BUILTIN_ORDER];state.festival=festivalOrder[0];state.year='all';commitFestivalManagement(state.festival);b.dataset.armed='0';b.textContent='기본 구성 복원'};
+}
+const _originalBuildFestivalTabs=buildFestivalTabs;buildFestivalTabs=function(){const tabs=document.getElementById('festivalTabs');tabs.innerHTML=orderedFestivals().map(d=>`<button type="button" data-festival="${d.id}" class="${state.festival===d.id?'active':''}" aria-selected="${state.festival===d.id}">${esc(d.name)}</button>`).join('');tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(state.festival===b.dataset.festival)return;state.festival=b.dataset.festival;state.year='all';populateYears();render()})};
+
+
+const REPORT_YEARS=[2024,2025,2026,2027];
+function currentReportYear(){const y=new Date().getFullYear();return REPORT_YEARS.includes(y)?y:REPORT_YEARS.reduce((a,b)=>Math.abs(b-y)<Math.abs(a-y)?b:a)}
+function festivalHasYear(d,y){return !!(d&&Array.isArray(d.years)&&d.years.map(Number).includes(Number(y)))}
+function availableFestivalsForYear(y){return orderedFestivals().filter(d=>festivalHasYear(d,y))}
+function populateYears(){
+ const sel=document.getElementById('yearSelect');if(!sel)return;
+ const previous=Number(state.year);
+ sel.innerHTML=REPORT_YEARS.map(y=>`<option value="${y}">${String(y).slice(2)}년</option>`).join('');
+ const wanted=REPORT_YEARS.includes(previous)?previous:currentReportYear();state.year=String(wanted);sel.value=String(wanted);
+}
+function ensureFestivalForYear(){const y=Number(state.year),available=availableFestivalsForYear(y);if(available.length&&!available.some(d=>d.id===state.festival))state.festival=available[0].id;return available}
+buildFestivalTabs=function(){const tabs=document.getElementById('festivalTabs'),available=ensureFestivalForYear();if(!tabs)return;if(window.__SINGLE_FESTIVAL_MODE__){tabs.style.display='none';return}if(!available.length){tabs.innerHTML=`<span class="no-festival-year">${state.year}년 분석 가능한 축제가 없습니다.</span>`;return}tabs.innerHTML=available.map(d=>`<button type="button" data-festival="${d.id}" class="${state.festival===d.id?'active':''}" aria-selected="${state.festival===d.id}">${esc(festivalReportTitle(d))}</button>`).join('');tabs.querySelectorAll('button').forEach(b=>b.onclick=()=>{if(state.festival===b.dataset.festival)return;state.festival=b.dataset.festival;render()})};
+const originalRenderForYear=render;
+render=function(){const available=ensureFestivalForYear();buildFestivalTabs();const report=document.getElementById('report');if(!available.length){report.innerHTML=`<section class="section"><h2>${state.year}년</h2><div class="empty"><b>분석 가능한 축제가 없습니다.</b><br>수정 버튼에서 해당 연도의 축제 원본 데이터를 추가하면 분석 화면에 표시됩니다.</div></section>`;return}originalRenderForYear()};
+
+
+async function loadExternalExcelFromDataDir(){
+  const reportEl = document.getElementById('report');
+  if (reportEl) {
+    reportEl.innerHTML = '<section class="page" style="display:grid;place-items:center;min-height:360px;text-align:center;"><div><h3>./data 폴더의 엑셀 데이터를 불러오는 중입니다...</h3><p class="lead">manifest.json 및 각 축제별 .xlsx 원천 시트를 실시간으로 파싱하고 있습니다.</p></div></section>';
+  }
+  try {
+    let entries = [];
+    const res = await fetch('./data/manifest.json?t=' + Date.now());
+    if (res.ok) {
+      const manifest = await res.json();
+      entries = Array.isArray(manifest.files) ? manifest.files : [];
+    } else {
+      // manifest.json이 없으면 GitHub API로 ./data 폴더 내 .xlsx 파일 목록을 자동 조회
+      const cfg = detectGithubRepoInfo();
+      if (cfg.owner && cfg.repo) {
+        const ghRes = await fetch(`https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/contents/data?ref=${encodeURIComponent(cfg.branch)}`);
+        if (ghRes.ok) {
+          const items = await ghRes.json();
+          entries = (Array.isArray(items) ? items : [])
+            .filter(x => x.type === 'file' && /\.xlsx$/i.test(x.name))
+            .map(x => ({ id: x.name.replace(/\.xlsx$/i, ''), name: x.name.replace(/\.xlsx$/i, '').split('_')[0], file: x.name }));
+        }
+      }
+      if (!entries.length) throw new Error('manifest.json 또는 ./data 폴더의 엑셀 목록을 찾을 수 없습니다 (HTTP ' + res.status + ')');
+    }
+
+    for (const item of entries) {
+      const fileName = typeof item === 'string' ? item : item.file;
+      if (!fileName) continue;
+      const fileUrl = './data/' + encodeURIComponent(fileName);
+      const xRes = await fetch(fileUrl + '?t=' + Date.now());
+      if (!xRes.ok) {
+        console.warn('엑셀 파일 로드 실패:', fileName, xRes.status);
+        continue;
+      }
+      const buf = await xRes.arrayBuffer();
+      const pseudoFile = {
+        name: fileName,
+        type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        arrayBuffer: async () => buf
+      };
+      const sheets = await readWorkbook(pseudoFile);
+      const festObj = buildFestivalFromWorkbook(sheets, pseudoFile);
+      if (item && item.id) festObj.id = item.id;
+      if (item && item.name) festObj.name = item.name;
+      festObj.sourceFile = fileName;
+      festObj._dataUrl = fileUrl;
+      festObj._rawSheets = sheets;
+      festObj._uploaded = false;
+
+      SOURCE_DB[festObj.id] = {
+        id: festObj.id,
+        name: festObj.name,
+        sourceFile: fileName,
+        sheets: sheets
+      };
+      DATA.festivals[festObj.id] = festObj;
+      BUILTIN_FESTIVALS[festObj.id] = JSON.parse(JSON.stringify(festObj));
+      if (!BUILTIN_ORDER.includes(festObj.id)) BUILTIN_ORDER.push(festObj.id);
+      if (!festivalOrder.includes(festObj.id)) festivalOrder.push(festObj.id);
+    }
+  } catch (err) {
+    console.error('외부 Excel 로드 오류:', err);
+    if (reportEl && !Object.keys(DATA.festivals).length) {
+      reportEl.innerHTML = `<section class="page"><div class="warn"><b>외부 ./data 폴더의 엑셀 파일을 불러오지 못했습니다.</b><br>사유: ${esc(err.message)}<br><br>※ 로컬 PC에서 <code>file://</code> 경로로 직접 열면 브라우저 보안(CORS) 정책상 하위 폴더 <code>./data/*.xlsx</code> 읽기가 차단될 수 있습니다.<br><b>GitHub Pages</b>에 업로드하거나, 로컬에서는 <code>python -m http.server 8000</code> 실행 후 <code>http://localhost:8000</code>으로 접속해 주세요.</div></section>`;
+      return false;
+    }
+  }
+  return true;
+}
+
+
+/* ===== GitHub 리포지토리 ./data 디렉토리 직접 저장 및 자동 로딩 모듈 ===== */
+const GH_CFG_KEY = 'gjto_festival_github_cfg_v1';
+
+function detectGithubRepoInfo() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(GH_CFG_KEY) || '{}'); } catch (e) {}
+  let owner = saved.owner || '';
+  let repo = saved.repo || '';
+  let branch = saved.branch || 'main';
+  let token = saved.token || '';
+
+  // GitHub Pages URL (https://{owner}.github.io/{repo}/...) 에서 자동 추출
+  const host = window.location.hostname || '';
+  const pathParts = (window.location.pathname || '').split('/').filter(Boolean);
+  if (host.endsWith('.github.io')) {
+    if (!owner) owner = host.replace(/\.github\.io$/i, '');
+    if (!repo && pathParts.length > 0) repo = pathParts[0];
+  }
+  return { owner, repo, branch, token };
+}
+
+function saveGithubRepoInfo(cfg) {
+  try { localStorage.setItem(GH_CFG_KEY, JSON.stringify(cfg)); } catch (e) {}
+}
+
+// 순수 JavaScript 기반 표준 .xlsx (OOXML ZIP Stored) 생성기 (CSV 6개 업로드 시에도 진짜 .xlsx 생성용)
+function buildXlsxBytesFromSheets(sheetsDict) {
+  const enc = new TextEncoder();
+  const xmlEsc = v => String(v ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,'');
+  const colName = idx => {
+    let s = '', n = idx + 1;
+    while (n > 0) { const m = (n - 1) % 26; s = String.fromCharCode(65 + m) + s; n = Math.floor((n - m) / 26); }
+    return s;
+  };
+
+  const sheetEntries = Object.entries(sheetsDict || {}).filter(([, rows]) => Array.isArray(rows) && rows.length > 0);
+  if (!sheetEntries.length) throw new Error('저장할 시트 데이터가 없습니다.');
+
+  const files = {};
+  const contentTypes = [
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',
+    '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">',
+    '<Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>',
+    '<Default Extension="xml" ContentType="application/xml"/>',
+    '<Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>'
+  ];
+  const wbSheetsXml = [];
+  const wbRelsXml = [
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>',
+    '<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">'
+  ];
+
+  sheetEntries.forEach(([rawName, rows], idx) => {
+    const sheetIdx = idx + 1;
+    const safeName = xmlEsc(String(rawName).replace(/[\\/*?:\[\]]/g, '_').slice(0, 31) || `Sheet${sheetIdx}`);
+    contentTypes.push(`<Override PartName="/xl/worksheets/sheet${sheetIdx}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`);
+    wbSheetsXml.push(`<sheet name="${safeName}" sheetId="${sheetIdx}" r:id="rId${sheetIdx}"/>`);
+    wbRelsXml.push(`<Relationship Id="rId${sheetIdx}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${sheetIdx}.xml"/>`);
+
+    const rowXmls = rows.map((row, rIdx) => {
+      const rNum = rIdx + 1;
+      const cells = (row || []).map((val, cIdx) => {
+        if (val === null || val === undefined || val === '') return '';
+        const ref = `${colName(cIdx)}${rNum}`;
+        if (typeof val === 'number' && Number.isFinite(val)) {
+          return `<c r="${ref}"><v>${val}</v></c>`;
+        }
+        return `<c r="${ref}" t="inlineStr"><is><t>${xmlEsc(val)}</t></is></c>`;
+      }).join('');
+      return `<row r="${rNum}">${cells}</row>`;
+    }).join('');
+
+    files[`xl/worksheets/sheet${sheetIdx}.xml`] = enc.encode(
+      `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><sheetData>${rowXmls}</sheetData></worksheet>`
+    );
+  });
+
+  contentTypes.push('</Types>');
+  wbRelsXml.push('</Relationships>');
+
+  files['[Content_Types].xml'] = enc.encode(contentTypes.join(''));
+  files['_rels/.rels'] = enc.encode(
+    '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>'
+  );
+  files['xl/workbook.xml'] = enc.encode(
+    `<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheets>${wbSheetsXml.join('')}</sheets></workbook>`
+  );
+  files['xl/_rels/workbook.xml.rels'] = enc.encode(wbRelsXml.join(''));
+
+  // CRC32 계산
+  const crcTable = new Uint32Array(256);
+  for (let i = 0; i < 256; i++) {
+    let c = i;
+    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+    crcTable[i] = c;
+  }
+  const crc32 = buf => {
+    let c = 0xFFFFFFFF;
+    for (let i = 0; i < buf.length; i++) c = crcTable[(c ^ buf[i]) & 0xFF] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  };
+
+  // ZIP 조립 (Store mode)
+  const localParts = [];
+  const centralParts = [];
+  let offset = 0;
+
+  for (const [name, data] of Object.entries(files)) {
+    const nameBytes = enc.encode(name);
+    const crc = crc32(data);
+    const size = data.length;
+
+    const lfh = new Uint8Array(30 + nameBytes.length);
+    const ldv = new DataView(lfh.buffer);
+    ldv.setUint32(0, 0x04034b50, true);
+    ldv.setUint16(4, 20, true);
+    ldv.setUint16(6, 0x0800, true); // UTF-8 flag
+    ldv.setUint16(8, 0, true);      // Store
+    ldv.setUint32(14, crc, true);
+    ldv.setUint32(18, size, true);
+    ldv.setUint32(22, size, true);
+    ldv.setUint16(26, nameBytes.length, true);
+    lfh.set(nameBytes, 30);
+
+    const cdh = new Uint8Array(46 + nameBytes.length);
+    const cdv = new DataView(cdh.buffer);
+    cdv.setUint32(0, 0x02014b50, true);
+    cdv.setUint16(4, 20, true);
+    cdv.setUint16(6, 20, true);
+    cdv.setUint16(8, 0x0800, true);
+    cdv.setUint16(10, 0, true);
+    cdv.setUint32(16, crc, true);
+    cdv.setUint32(20, size, true);
+    cdv.setUint32(24, size, true);
+    cdv.setUint16(28, nameBytes.length, true);
+    cdv.setUint32(42, offset, true);
+    cdh.set(nameBytes, 46);
+
+    localParts.push(lfh, data);
+    centralParts.push(cdh);
+    offset += lfh.length + size;
+  }
+
+  const centralSize = centralParts.reduce((s, p) => s + p.length, 0);
+  const eocd = new Uint8Array(22);
+  const edv = new DataView(eocd.buffer);
+  edv.setUint32(0, 0x06054b50, true);
+  edv.setUint16(8, centralParts.length, true);
+  edv.setUint16(10, centralParts.length, true);
+  edv.setUint32(12, centralSize, true);
+  edv.setUint32(16, offset, true);
+
+  const out = new Uint8Array(offset + centralSize + 22);
+  let ptr = 0;
+  for (const p of localParts) { out.set(p, ptr); ptr += p.length; }
+  for (const p of centralParts) { out.set(p, ptr); ptr += p.length; }
+  out.set(eocd, ptr);
+  return out;
+}
+
+function uint8ToBase64(u8) {
+  let bin = '';
+  const chunk = 0x8000;
+  for (let i = 0; i < u8.length; i += chunk) {
+    bin += String.fromCharCode.apply(null, u8.subarray(i, i + chunk));
+  }
+  return btoa(bin);
+}
+
+// GitHub Contents API로 ./data/{filename} 직접 생성/커밋 (캐시 우회 적용으로 SHA 충돌 방지)
+async function commitFileToGithubDataDir(repoPath, base64Content, commitMsg, cfg) {
+  const apiUrl = `https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/contents/${repoPath.split('/').map(encodeURIComponent).join('/')}`;
+  const headers = {
+    'Authorization': `Bearer ${cfg.token}`,
+    'Accept': 'application/vnd.github+json',
+    'Content-Type': 'application/json'
+  };
+
+  let sha = undefined;
+  const checkRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(cfg.branch)}&_t=${Date.now()}`, {
+    headers,
+    cache: 'no-store'
+  });
+  if (checkRes.ok) {
+    const existing = await checkRes.json();
+    sha = existing.sha;
+  }
+
+  const body = {
+    message: commitMsg,
+    content: base64Content,
+    branch: cfg.branch
+  };
+  if (sha) body.sha = sha;
+
+  const putRes = await fetch(apiUrl, {
+    method: 'PUT',
+    headers,
+    body: JSON.stringify(body)
+  });
+
+  if (!putRes.ok) {
+    const errJson = await putRes.json().catch(() => ({}));
+    throw new Error(errJson.message || `GitHub API 오류 (HTTP ${putRes.status})`);
+  }
+  return await putRes.json();
+}
+
+// GitHub 토큰 입력 전용 별도 모달 창 열기
+function openGithubTokenModal() {
+  let modal = document.getElementById('ghTokenModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'ghTokenModal';
+    modal.style.cssText = 'position:fixed;inset:0;z-index:2147483500;background:rgba(20,15,18,.68);display:flex;align-items:center;justify-content:center;padding:20px;';
+    document.body.appendChild(modal);
+  }
+  const cfg = detectGithubRepoInfo();
+  modal.innerHTML = `
+    <div style="width:min(520px,94vw);background:#fff;border-radius:18px;padding:24px;box-shadow:0 24px 70px rgba(0,0,0,.38);font-family:inherit;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+        <h3 style="margin:0;font-size:19px;">GitHub 토큰 및 저장소 설정</h3>
+        <button type="button" id="ghModalCloseX" style="border:0;background:#eee7eb;border-radius:50%;width:32px;height:32px;font-size:18px;cursor:pointer;">×</button>
+      </div>
+      <p style="margin:0 0 14px;font-size:12px;color:#716a70;line-height:1.6;">
+        GitHub Personal Access Token(<code>Contents: Read and write</code> 권한)을 입력해 두면, 축제 데이터를 업로드할 때 리포지토리의 <b><code>./data/축제명_저장일자.xlsx</code></b> 경로에 직접 저장됩니다.
+      </p>
+      <div style="display:grid;gap:10px;font-size:12px;">
+        <label style="display:grid;gap:4px;font-weight:800;">GitHub 아이디
+          <input id="ghModalOwner" type="text" placeholder="예: uplusdata" value="${esc(cfg.owner)}" style="padding:9px 11px;border:1px solid #d8cbd2;border-radius:9px;font-size:13px;">
+        </label>
+        <label style="display:grid;gap:4px;font-weight:800;">저장소 이름 (Repository)
+          <input id="ghModalRepo" type="text" placeholder="예: GJTO_FESTIVAL_REPORT" value="${esc(cfg.repo)}" style="padding:9px 11px;border:1px solid #d8cbd2;border-radius:9px;font-size:13px;">
+        </label>
+        <label style="display:grid;gap:4px;font-weight:800;">브랜치 (Branch)
+          <input id="ghModalBranch" type="text" placeholder="main" value="${esc(cfg.branch)}" style="padding:9px 11px;border:1px solid #d8cbd2;border-radius:9px;font-size:13px;">
+        </label>
+        <label style="display:grid;gap:4px;font-weight:800;">GitHub Personal Access Token
+          <input id="ghModalToken" type="password" placeholder="ghp_... 또는 github_pat_..." value="${esc(cfg.token)}" style="padding:9px 11px;border:1px solid #d8cbd2;border-radius:9px;font-size:13px;">
+        </label>
+      </div>
+      <div id="ghModalMsg" style="margin-top:10px;font-size:12px;font-weight:700;"></div>
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:18px;">
+        <button type="button" id="ghModalClearBtn" style="border:1px solid #d8cbd2;background:#fff;color:#655b61;border-radius:9px;padding:9px 14px;font-weight:800;cursor:pointer;">토큰 삭제</button>
+        <button type="button" id="ghModalCancelBtn" style="border:0;background:#eee7eb;color:#241d21;border-radius:9px;padding:9px 14px;font-weight:800;cursor:pointer;">닫기</button>
+        <button type="button" id="ghModalSaveBtn" style="border:0;background:var(--pink);color:#fff;border-radius:9px;padding:9px 16px;font-weight:900;cursor:pointer;">저장</button>
+      </div>
+    </div>
+  `;
+  modal.style.display = 'flex';
+  const closeModal = () => { modal.style.display = 'none'; updateGithubTokenButtonBadge(); };
+  document.getElementById('ghModalCloseX').onclick = closeModal;
+  document.getElementById('ghModalCancelBtn').onclick = closeModal;
+  modal.onclick = e => { if (e.target === modal) closeModal(); };
+  document.getElementById('ghModalClearBtn').onclick = () => {
+    saveGithubRepoInfo({ owner: cfg.owner, repo: cfg.repo, branch: cfg.branch, token: '' });
+    document.getElementById('ghModalToken').value = '';
+    const msg = document.getElementById('ghModalMsg');
+    msg.style.color = '#684d00';
+    msg.textContent = '저장된 GitHub 토큰이 삭제되었습니다.';
+    updateGithubTokenButtonBadge();
+  };
+  document.getElementById('ghModalSaveBtn').onclick = () => {
+    const nextCfg = {
+      owner: document.getElementById('ghModalOwner').value.trim(),
+      repo: document.getElementById('ghModalRepo').value.trim(),
+      branch: document.getElementById('ghModalBranch').value.trim() || 'main',
+      token: document.getElementById('ghModalToken').value.trim()
+    };
+    saveGithubRepoInfo(nextCfg);
+    const msg = document.getElementById('ghModalMsg');
+    if (nextCfg.token && nextCfg.owner && nextCfg.repo) {
+      msg.style.color = '#24713a';
+      msg.textContent = '✅ GitHub 토큰 및 저장소 설정이 저장되었습니다.';
+    } else {
+      msg.style.color = '#a21d35';
+      msg.textContent = '⚠️ 아이디, 저장소 이름, 토큰을 모두 입력해 주세요.';
+    }
+    updateGithubTokenButtonBadge();
+  };
+}
+
+function updateGithubTokenButtonBadge() {
+  const btn = document.getElementById('openGhTokenBtn');
+  if (!btn) return;
+  const cfg = detectGithubRepoInfo();
+  if (cfg.token && cfg.owner && cfg.repo) {
+    btn.style.background = '#eff8f1';
+    btn.style.borderColor = '#b9ddc1';
+    btn.style.color = '#285f33';
+    btn.textContent = '🔑 GitHub 토큰 설정됨';
+  } else {
+    btn.style.background = '#fff7df';
+    btn.style.borderColor = '#f0d389';
+    btn.style.color = '#684d00';
+    btn.textContent = '🔑 GitHub 토큰 입력';
+  }
+}
+
+// 축제 관리 창 상단 '축제 데이터 추가' 줄 우측에 별도의 [GitHub 토큰 입력] 버튼 배치
+function ensureGithubSettingsUi() {
+  const titleRow = document.querySelector('#festivalManager .upload-title-row');
+  if (!titleRow || document.getElementById('openGhTokenBtn')) {
+    updateGithubTokenButtonBadge();
+    return;
+  }
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.id = 'openGhTokenBtn';
+  btn.style.cssText = 'margin-left:auto;border:1px solid #d8cbd2;border-radius:9px;padding:7px 12px;font-size:12px;font-weight:900;cursor:pointer;';
+  btn.onclick = openGithubTokenModal;
+  titleRow.appendChild(btn);
+  updateGithubTokenButtonBadge();
+}
+
+// 업로드된 축제를 ./data/{축제명}_{저장일자}.xlsx 로 GitHub에 직접 커밋 & manifest.json 갱신
+async function saveFestivalToGithubDataDir(festObj, originalFile) {
+  const st = document.getElementById('uploadStatus');
+  const today = new Date();
+  const ymd = today.getFullYear() + String(today.getMonth() + 1).padStart(2, '0') + String(today.getDate()).padStart(2, '0');
+  const safeName = String(festObj.name || '신규축제').replace(/[\\/*?:"<>|]/g, '_').trim();
+  const targetFilename = `${safeName}_${ymd}.xlsx`;
+
+  const cfg = detectGithubRepoInfo();
+  if (!cfg.token || !cfg.owner || !cfg.repo) {
+    if (st) {
+      st.className = 'upload-status error';
+      st.innerHTML += `<br>⚠️ <b>GitHub Token이 입력되지 않아 <code>./data/${esc(targetFilename)}</code>에 저장할 수 없습니다.</b><br>우측 상단의 <b>[🔑 GitHub 토큰 입력]</b> 버튼을 눌러 토큰을 등록한 뒤 다시 업로드해 주세요.`;
+    }
+    return;
+  }
+
+  try {
+    if (st) {
+      st.className = 'upload-status';
+      st.textContent = `GitHub ./data/${targetFilename} 경로에 엑셀 파일을 직접 저장하는 중입니다...`;
+    }
+
+    let u8Bytes;
+    if (originalFile && /\.xlsx$/i.test(originalFile.name)) {
+      u8Bytes = new Uint8Array(await originalFile.arrayBuffer());
+    } else {
+      u8Bytes = buildXlsxBytesFromSheets(festObj._rawSheets || {});
+    }
+    const base64Xlsx = uint8ToBase64(u8Bytes);
+
+    // 1. GitHub 리포지토리의 data/{축제명}_{저장일자}.xlsx 에 직접 커밋
+    await commitFileToGithubDataDir(
+      `data/${targetFilename}`,
+      base64Xlsx,
+      `Add festival data: data/${targetFilename}`,
+      cfg
+    );
+
+    // 2. data/manifest.json 목록 조회 (cache: 'no-store' 적용으로 SHA 불일치 방지)
+    let manifestObj = { updatedAt: `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`, files: [] };
+    try {
+      const mRes = await fetch(`https://api.github.com/repos/${encodeURIComponent(cfg.owner)}/${encodeURIComponent(cfg.repo)}/contents/data/manifest.json?ref=${encodeURIComponent(cfg.branch)}&_t=${Date.now()}`, {
+        headers: { 'Authorization': `Bearer ${cfg.token}`, 'Accept': 'application/vnd.github+json' },
+        cache: 'no-store'
+      });
+      if (mRes.ok) {
+        const mData = await mRes.json();
+        const decoded = new TextDecoder().decode(Uint8Array.from(atob(mData.content.replace(/\s/g, '')), c => c.charCodeAt(0)));
+        manifestObj = JSON.parse(decoded);
+      }
+    } catch (e) {}
+
+    if (!Array.isArray(manifestObj.files)) manifestObj.files = [];
+    manifestObj.updatedAt = `${today.getFullYear()}-${String(today.getMonth()+1).padStart(2,'0')}-${String(today.getDate()).padStart(2,'0')}`;
+    const existingIdx = manifestObj.files.findIndex(x => (typeof x === 'string' ? x : x.file) === targetFilename);
+    const entry = { id: festObj.id, name: festObj.name, file: targetFilename };
+    if (existingIdx >= 0) manifestObj.files[existingIdx] = entry;
+    else manifestObj.files.push(entry);
+
+    const manifestB64 = uint8ToBase64(new TextEncoder().encode(JSON.stringify(manifestObj, null, 2)));
+    await commitFileToGithubDataDir(
+      'data/manifest.json',
+      manifestB64,
+      `Update data/manifest.json with ${targetFilename}`,
+      cfg
+    );
+
+    festObj.sourceFile = targetFilename;
+    festObj._dataUrl = `./data/${encodeURIComponent(targetFilename)}`;
+    renderManageList();
+
+    if (st) {
+      st.className = 'upload-status ok';
+      st.innerHTML = `✅ <b>${esc(festObj.name)}</b> 저장 완료! GitHub 리포지토리의 <b><code>./data/${esc(targetFilename)}</code></b> 경로에 직접 저장되었으며 <code>manifest.json</code>에도 누적 반영되었습니다.`;
+    }
+  } catch (err) {
+    console.error('GitHub ./data 저장 실패:', err);
+    if (st) {
+      st.className = 'upload-status error';
+      st.innerHTML = `❌ GitHub <code>./data</code> 저장 실패: ${esc(err.message)}<br>토큰 권한(<code>Contents: Read and write</code>) 및 저장소 정보를 확인해 주세요.`;
+    }
+  }
+}
+
+const _origOpenManagerGh = openManager;
+openManager = function() {
+  _origOpenManagerGh.apply(this, arguments);
+  ensureGithubSettingsUi();
+};
+
+const _origUploadFestivalExternal = uploadFestival;
+uploadFestival = async function(file) {
+  const prevCount = festivalOrder.length;
+  await _origUploadFestivalExternal.apply(this, arguments);
+  if (festivalOrder.length > prevCount) {
+    const newId = festivalOrder[festivalOrder.length - 1];
+    const newFest = DATA.festivals[newId];
+    if (newFest) {
+      await saveFestivalToGithubDataDir(newFest, file);
+    }
+  }
+};
+
+const _origUploadFestivalCsvExternal = uploadFestivalCsv;
+uploadFestivalCsv = async function(files) {
+  const prevCount = festivalOrder.length;
+  await _origUploadFestivalCsvExternal.apply(this, arguments);
+  if (festivalOrder.length > prevCount) {
+    const newId = festivalOrder[festivalOrder.length - 1];
+    const newFest = DATA.festivals[newId];
+    if (newFest) {
+      await saveFestivalToGithubDataDir(newFest, null);
+    }
+  }
+};
+
+
+/* 우측 1~7 대제목 이동 및 현재 섹션 하이라이트 연동 */
+function bindQuickSectionNav() {
+  const nav = document.getElementById('quickSecNav');
+  const report = document.getElementById('report');
+  if (!nav || !report) return;
+
+  const getSectionScrollTop = (sec) => {
+    const reportRect = report.getBoundingClientRect();
+    const secRect = sec.getBoundingClientRect();
+    // #report 스크롤 컨테이너 기준 실제 상대 위치에서 상단 여백(22px) 확보
+    return report.scrollTop + (secRect.top - reportRect.top) - 22;
+  };
+
+  const btns = [...nav.querySelectorAll('button[data-target]')];
+  btns.forEach(btn => {
+    btn.onclick = () => {
+      const target = document.getElementById(btn.dataset.target);
+      if (!target) return;
+      const topPos = getSectionScrollTop(target);
+      report.scrollTo({ top: Math.max(0, topPos), behavior: 'smooth' });
+      btns.forEach(b => b.classList.toggle('active', b === btn));
+    };
+  });
+
+  const updateActiveSection = () => {
+    const reportRect = report.getBoundingClientRect();
+    const thresholdTop = reportRect.top + report.clientHeight * 0.28;
+    let currentId = '';
+    for (let i = 1; i <= 7; i++) {
+      const sec = document.getElementById('section' + i);
+      if (!sec) continue;
+      const secTop = sec.getBoundingClientRect().top;
+      if (secTop <= thresholdTop) {
+        currentId = 'section' + i;
+      }
+    }
+    btns.forEach(b => b.classList.toggle('active', b.dataset.target === currentId));
+  };
+
+  if (report.dataset.quickNavBound !== '1') {
+    report.dataset.quickNavBound = '1';
+    report.addEventListener('scroll', updateActiveSection, { passive: true });
+  }
+  updateActiveSection();
+}
+
+async function init(){
+  initFestivalManager();
+  let ok = true;
+  if (!window.__SINGLE_FESTIVAL_MODE__) {
+    ok = await loadExternalExcelFromDataDir();
+    loadFestivalStore();
+  }
+  if (!festivalOrder.length && BUILTIN_ORDER.length) {
+    Object.keys(BUILTIN_FESTIVALS).forEach(k => DATA.festivals[k] = JSON.parse(JSON.stringify(BUILTIN_FESTIVALS[k])));
+    festivalOrder = [...BUILTIN_ORDER];
+  }
+  if (festivalOrder.length && !DATA.festivals[state.festival]) {
+    state.festival = festivalOrder[0];
+  }
+  yearSelect = document.getElementById('yearSelect');
+  populateYears();
+  yearSelect.onchange = () => { state.year = yearSelect.value; ensureFestivalForYear(); render(); };
+  enableDragScroll(document.getElementById('report'));
+  if (ok || Object.keys(DATA.festivals).length) {
+    render();
+  }
+}
+init();</script></body></html>
