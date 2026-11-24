@@ -42,7 +42,9 @@
 
 button,input,select,textarea{font-family:inherit}
 </style></head><body><div class="app">
-<header class="top"><div class="topline"><div class="brand"><i></i><div><h1>축제 원천데이터 통합분석</h1><div class="subtitle">축제별 연속 스크롤 보고서 · 원천 Excel 재집계</div></div></div><div class="controls"><button type="button" class="manage-btn" id="manageFestivalsBtn">수정</button><div class="control"><label for="yearSelect">연도</label><select id="yearSelect"></select></div></div></div><nav class="nav" id="festivalTabs" aria-label="축제 선택"></nav></header>
+<header class="top"><div class="topline"><div class="brand"><i></i><div><h1>축제 원천데이터 통합분석</h1><div class="subtitle">축제별 연속 스크롤 보고서 · 원천 Excel 재집계</div></div></div><div class="controls">
+  <button type="button" class="manage-btn" id="pdfSaveBtn" style="background:var(--pink);border-color:var(--pink);color:#fff;">PDF 저장</button>
+  <button type="button" class="manage-btn" id="manageFestivalsBtn">수정</button><div class="control"><label for="yearSelect">연도</label><select id="yearSelect"></select></div></div></div><nav class="nav" id="festivalTabs" aria-label="축제 선택"></nav></header>
 <div class="manager-backdrop" id="festivalManager" aria-hidden="true" hidden><section class="manager" role="dialog" aria-modal="true" aria-labelledby="managerTitle"><div class="manager-head"><div><h2 id="managerTitle">축제 관리</h2><p>동일 포맷의 정규화 Excel을 추가하고, 축제 탭의 삭제·순서를 관리합니다.</p></div><button class="manager-close" id="managerClose" aria-label="닫기">×</button></div><div class="upload-box"><div class="upload-title-row"><b>축제 데이터 추가</b><select id="uploadModeSelect"><option value="excel" selected>Excel 1개</option><option value="csv">CSV 6개</option></select></div><div class="upload-mode-row"><label class="upload-choice" id="excelUploadBox"><span>Excel 파일 1개 (.xlsx/.xls/.xlsm/.xlsb)</span><input id="festivalExcelInput" type="file" accept=".xlsx,.xls,.xlsm,.xlsb,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.ms-excel.sheet.binary.macroEnabled.12"></label><label class="upload-choice" id="csvUploadBox" hidden><span>CSV 6개 한꺼번에</span><input id="festivalCsvInput" type="file" multiple accept=".csv,text/csv"></label></div><span class="upload-status" id="uploadStatus">동일 포맷의 Excel 1개를 선택하세요. (기준정보, DB1~DB5 시트 포함)</span></div><div class="festival-manage-list" id="festivalManageList"></div><div class="manager-actions"><button id="managerReset">기본 구성 복원</button><button id="downloadHtmlBtn">HTML 다운로드</button><button class="primary" id="managerDone">완료</button></div></section></div><main class="wrap" id="report"></main><nav class="quick-sec-nav" id="quickSecNav" aria-label="대제목 바로가기">
   <button type="button" data-target="section1" aria-label="1. 전체 방문자 비교">1<span class="q-tip">1. 전체 방문자 비교</span></button>
   <button type="button" data-target="section2" aria-label="2. 외국인 방문자 비교">2<span class="q-tip">2. 외국인 방문자 비교</span></button>
@@ -906,6 +908,19 @@ async function init(){
   yearSelect = document.getElementById('yearSelect');
   populateYears();
   yearSelect.onchange = () => { state.year = yearSelect.value; ensureFestivalForYear(); render(); };
+  const pdfBtn = document.getElementById('pdfSaveBtn');
+  if (pdfBtn) {
+    pdfBtn.onclick = () => {
+      const d = DATA.festivals[state.festival];
+      const origTitle = document.title;
+      if (d) {
+        const cleanName = String(festivalReportTitle(d) || d.name || '축제').replace(/[\\/*?:"<>|]/g, '_').trim();
+        document.title = `${cleanName}_${state.year}년_분석보고서`;
+      }
+      window.print();
+      setTimeout(() => { document.title = origTitle; }, 500);
+    };
+  }
   enableDragScroll(document.getElementById('report'));
   if (ok || Object.keys(DATA.festivals).length) {
     render();
